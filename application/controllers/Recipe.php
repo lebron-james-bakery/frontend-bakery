@@ -16,7 +16,7 @@ class Recipe extends Application
 	public function index()
 	{
 		// this is the view we want shown
-		$this->data['pagebody'] = 'recipe';
+		$this->data['pagebody'] = 'recipe_view';
 
 		// build one item, to pass on to our view
 		$record = $this->recipes->get($this->getID($_SERVER["REQUEST_URI"]));

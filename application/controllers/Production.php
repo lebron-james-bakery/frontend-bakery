@@ -16,7 +16,7 @@ class Production extends Application
 	public function index()
 	{
 		// this is the view we want shown
-		$this->data['pagebody'] = 'production';
+		$this->data['pagebody'] = 'production_view';
 
 		// build the list of items, to pass on to our view
 		$source = $this->recipes->all();

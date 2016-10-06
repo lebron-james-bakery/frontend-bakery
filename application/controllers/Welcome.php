@@ -19,11 +19,11 @@ class Welcome extends Application
 		$this->data['pagebody'] = 'homepage_view';
 
 		// build the list of items, to pass on to our view
-		$source = $this->recipes->all();
+		$source = $this->bakery->all();
 		$items = array ();
 		foreach ($source as $record)
 		{
-			$items[] = array ('name' => $record['name'], 'pix' => $record['pix'], 'href' => $record['where']);
+			$items[] = array ('who' => $record['who'], 'pic' => $record['pic'], 'href' => $record['where'], 'what' => $record['what']);
 		}
 		$this->data['items'] = $items;
 
