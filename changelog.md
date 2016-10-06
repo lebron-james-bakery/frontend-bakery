@@ -18,6 +18,6 @@ Team members:
 - this is an changed log, please sign with your github id @gerardng
  
 ### Added - 2016-10-05
- - Sales Controller, 
+ - Sales Controller, Stock Model and sales_view View @New3
 
 
