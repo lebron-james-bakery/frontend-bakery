@@ -28,10 +28,10 @@ if (!defined('APPPATH'))
             </div>           
             <div id="content">
                 <h1>{pagetitle}</h1>
-                {content}
+                content start: {content} :content end
             </div>
             <div id="footer" class="span12">
-                (this is the footer) Copyright &copy; 2016.
+                footer: Copyright &copy; 2016.
             </div>
         </div>
         <script src="/assets/js/jquery-1.11.1.min.js"></script>
