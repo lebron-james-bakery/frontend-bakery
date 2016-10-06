@@ -18,6 +18,6 @@ Team members:
 - this is an changed log, please sign with your github id @gerardng
  
 ### Added - 2016-10-05
- - this one fixes an issue, you do it by saying: fixes #2 @gerardng
+ - Sales Controller, Stock Model and sales_view View @New3
 
 
