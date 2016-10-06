@@ -16,14 +16,14 @@ class Welcome extends Application
 	public function index()
 	{
 		// this is the view we want shown
-		$this->data['pagebody'] = 'homepage';
+		$this->data['pagebody'] = 'homepage_view';
 
 		// build the list of items, to pass on to our view
 		$source = $this->bakery->all();
 		$items = array ();
 		foreach ($source as $record)
 		{
-			$items[] = array ('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
+			$items[] = array ('who' => $record['who'], 'pic' => $record['pic'], 'href' => $record['where'], 'what' => $record['what']);
 		}
 		$this->data['items'] = $items;
 
