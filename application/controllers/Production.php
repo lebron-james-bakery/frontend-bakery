@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends Application
+class Production extends Application
 {
 
 	function __construct()
@@ -16,7 +16,7 @@ class Welcome extends Application
 	public function index()
 	{
 		// this is the view we want shown
-		$this->data['pagebody'] = 'homepage';
+		$this->data['pagebody'] = 'production';
 
 		// build the list of items, to pass on to our view
 		$source = $this->recipes->all();
