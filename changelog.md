@@ -20,4 +20,6 @@ Team members:
 ### Added - 2016-10-05
  - Sales Controller, Stock Model and sales_view View @New3
 
-
+### Added - 2016-10-05
+ - Create Recipes Model
+ - Create Production/Recipe controllors, and related views @AlexandyZ

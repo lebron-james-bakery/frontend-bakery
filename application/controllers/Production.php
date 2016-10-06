@@ -23,7 +23,7 @@ class Production extends Application
 		$items = array ();
 		foreach ($source as $record)
 		{
-			$items[] = array ('name' => $record['name'], 'mug' => $record['mug'], 'href' => $record['where']);
+			$items[] = array ('name' => $record['name'], 'pic' => $record['pic'], 'href' => $record['where']);
 		}
 		$this->data['items'] = $items;
 
