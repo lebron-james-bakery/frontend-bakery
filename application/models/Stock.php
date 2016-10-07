@@ -9,7 +9,7 @@ class Stock extends CI_Model {
 
     // The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
     var $data = array(
-        array('id' => '1', 'name' => 'Applesauce Spice Cake', 'pic' => 'Applesauce_Spice_Cake.jpg', 'where' => '/sales/1', 'price' => '$5' ,'order' => 'Out of Stock',
+        array('id' => '1', 'name' => 'Applesauce Spice Cake', 'pic' => 'Applesauce_Spice_Cake.jpg', 'where' => '/sales/1', 'price' => '$5' ,'order' => '0',
             'description' =>'Create the warm feelings of coziness and happiness with this Applesauce Spice Cake, a long-time favorite recipe that has been popular since Colonial Days!'),
         array('id' => '2',  'name' => 'Almond Tea Cake', 'pic' => 'Almond_Tea_Cake.jpg', 'where' => '/sales/2', 'price' => '$5.75', 'order' => '5 items',
             'description' =>'It’s just the most wonderful moist cake that keeps very well. It will soon have your guests asking if you made “the cake” for them. With lots of almond goodness, it will be sure to be a crowd pleaser.'),
