@@ -11,7 +11,7 @@ class Supplies extends CI_Model {
 
 	// The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
 	var $data = array(
-		array('id' => '1', 'name' => 'flour', 'description' => 'white flour powder', 'receivingNo' => '100', 'receivingUnit' => 'kg', 'receivingCost' => '$12.55', 'quantities' => '50',  'where' => '/receiving/1'),
+		array('id' => '1', 'name' => 'flour', 'description' => 'white flour powder', 'receivingNo' => '100', 'receivingUnit' => 'kg', 'receivingCost' => '12.55', 'quantities' => '50',  'where' => '/receiving/1'),
         array('id' => '2', 'name' => 'milk', 'description' => 'Silk, fat:0%', 'receivingNo' => '200', 'receivingUnit' => 'L', 'receivingCost' => '4.25', 'quantities' => '50', 'where' => '/receiving/2'),
         array('id' => '3', 'name' => 'egg', 'description' => 'white and brown', 'receivingNo' => '500', 'receivingUnit' => 'Dozen', 'receivingCost' => '3.25', 'quantities' => '90',  'where' => '/receiving/3'),
         array('id' => '4', 'name' => 'vegetable oil', 'description' => 'pure, natural', 'receivingNo' => '200', 'receivingUnit' => 'L', 'receivingCost' => '8.25', 'quantities' => '98',  'where' => '/receiving/4'),
