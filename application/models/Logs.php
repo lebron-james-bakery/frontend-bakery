@@ -23,9 +23,7 @@ class Logs extends CI_Model {
 			'what' => 'By all means, marry. If you get a good wife, you’ll become happy; if you get a bad one, you’ll become a philosopher.'),
 		array('id' => '6', 'who' => 'Swedish Rum Cake', 'pic' => 'Swedish_Rum_Cake.jpg', 'where' => '/comp4711/wisdom',
 			'what' => 'Those people who think they know everything are a great annoyance to those of us who do.'),
-
-        //array('id' => '1', 'name' => 'New York Cheesecake', 'picture')
-	);
+    );
 
 	// Constructor
 	public function __construct()

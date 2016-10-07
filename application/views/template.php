@@ -27,6 +27,13 @@ if (!defined('APPPATH'))
                     {menubar} </div>
             </div>           
             <div id="content">
+
+                <a href="#">Inbox <span class="badge">42</span></a>
+
+                <button class="btn btn-primary" type="button">
+                    Messages <span class="badge">4</span>
+                </button>
+
                 <h1>{pagetitle}</h1>
                 content start: {content} :content end
             </div>
