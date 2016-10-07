@@ -1,15 +1,15 @@
 <div class="row">
         <table class = "ingredient">
             <tr>
-                <th>Ingredients</th>
-                <th>Quantity</th>
-                <th>Add</th>
+                <th>Item</th>
+                <th>Receiving Unit</th>
+                <th>Qty</th>
             </tr>
             {items}
             <tr>            
-                <td>{name}</td>
-                <td>{unit}</td>
-                <td></td>
+                <td><a href="{href}">{name}</a></td>
+                <td>{receivingNo}</td>
+                <td><button type="button">Add</button></td>
             </tr>
             {/items}
         </table>
