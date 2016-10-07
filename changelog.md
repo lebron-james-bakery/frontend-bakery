@@ -11,6 +11,10 @@ Team members:
 - space reserved for release
 
 ## [Unreleased] - 2016-10-03
+### Added - 2016-10-07
+ - Create Sales_Sub controller as a sub-controller
+ - Create Salesmenu view for the ales_Sub controller @New3
+ 
 ### Changed - 2016-10-06
  - Renamed Bakery.php to Logs.php as the model @gerardng
  - Changed page title in MyController to "Lebron James Bakery" @gerardng
