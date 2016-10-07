@@ -53,3 +53,4 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['production/.*'] = 'Recipe';
+$route['sales/.*'] = 'Sales_Sub';
