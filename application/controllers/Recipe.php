@@ -19,9 +19,10 @@ class Recipe extends Application
 		$this->data['pagebody'] = 'recipe_view';
 
 		// build one item, to pass on to our view
-		$record = $this->recipes->get($this->getID($_SERVER["REQUEST_URI"]));
-        $this->data = array_merge($this->data, $record);
-
+		$record = $this->recipes->get($this->getID($_SERVER["REQUEST_URI"]));		
+		$this->data = array_merge($this->data, $record);
+		$this->data['ingredients'] = implode("</li><li>",$this->data['ingredients']);		
+		//echo $this->data['ingredients'];
 		$this->render();
 	}
 
