@@ -21,7 +21,7 @@ class Receiving extends Application
 		$items = array ();
 		foreach ($source as $record)
 		{
-			$items[] = array ('name' => $record['name'], 'receivingNo' => $record['receivingNo'],  'href' => $record['where']);
+			$items[] = array ('name' => $record['name'], 'receiving' => $record['receiving'],  'href' => $record['where']);
 		}
 		$this->data['items'] = $items;
 
