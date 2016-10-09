@@ -22,11 +22,9 @@ img.items{
     width:60%;
     padding: 20px 0 0 20px;
     margin: 20px 0 0 20px;
-    /*
     border-style: dotted;
     border-radius: 15px;
-    border-color: red;
-    */
+    border-color: palevioletred;
 }
 
 .ingredient td {border: 1px solid black;}
@@ -34,4 +32,5 @@ th, td {padding: 15px; text-align: left;}
 
 
 .sales td {border: 0px ;}
+
 
