@@ -9,7 +9,7 @@
             {items}
             <tr>            
                 <td><a href="{href}">{name}</a></td>
-                <td>{receivingNo}</td>
+                <td>{receiving}</td>
                 <td><button type="button">Add</button></td>
             </tr>
             {/items}
