@@ -1,6 +1,6 @@
 <div class="row">
-    <form>
-        
+    <div class="desc">
+    <form>        
         <p class="lead">{name}</p><br>
         <label for="ReceivingUnit">Description</label>
         <p class="text-left">{description}</p><br/>
@@ -18,5 +18,5 @@
         <input type="text" class ="form-control" value="{quantities}"><br/>
         </div>       
     </form>
-                    
+    </div>              
 </div>

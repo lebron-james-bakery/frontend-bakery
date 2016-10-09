@@ -1,4 +1,5 @@
 <div class="row">
+    <div class="desc">
         <table class = "table table-bordered">
             <tr>
                 <th>Item</th>
@@ -13,5 +14,6 @@
             </tr>
             {/items}
         </table>
+    </div>
                     
 </div>
