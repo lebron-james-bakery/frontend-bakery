@@ -1,60 +1,256 @@
-<div class="row">
-    homepage_view.php: hello world
-    <h1>Welcome to Gerard's Log: These are dummy data for now</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{total_stock_price}</div>
+                            <div>Total Stock Price</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-tasks fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{average_stock_price}</div>
+                            <div>Average Stock Price</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-shopping-cart fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{total_stock_order}</div>
+                            <div>Total Stock Order</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-support fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{total_supply_quantities}</div>
+                            <div>Total Supply Quantities</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
 
-    <button class="btn btn-primary" type="button">
-        Total Stock Price <span class="badge">$ {total_stock_price}</span>
-    </button>
-    <button class="btn btn-primary" type="button">
-        Average Stock Price <span class="badge">$ {average_stock_price}</span>
-    </button>
-    <button class="btn btn-info" type="button">
-        Total Stock Order <span class="badge">{total_stock_order} orders</span>
-    </button>
-    <button class="btn btn-success" type="button">
-        Total Supply Quantities <span class="badge">{total_supply_quantities} supplies</span>
-    </button>
-    <button class="btn btn-warning" type="button">
-        Total Supply Receiving Cost <span class="badge">$ {total_supply_receivingCost}</span>
-    </button>
-    <button class="btn btn-warning" type="button">
-        Average Supply Receiving Cost <span class="badge">$ {average_supply_receivingCost}</span>
-    </button>
-    <button class="btn btn-danger" type="button">
-        Total Supply Receiving Number <span class="badge">{total_supply_receivingNo} units</span>
-    </button>
-
-    <br><h1>Recipes</h1><br>
-    {recipes}
-    <h3 class="text-right">{name}</h3>
-    <div class="span4"><a href="{href}"><img src="/pix/{pic}" title="{name}"/></a></div>
-    <p class="text-left">Name{}: {name}</p>
-    <p class="text-left">Ingredients{}: {ingredients}</p>
-    <p class="text-left">IngredientAmount{}: {ingredientAmount}</p>
-    {/recipes}
-
-    <br><h1>Stocks</h1><br>
-    {stocks}
-    <h3 class="text-right">{name}</h3>
-    <div class="span4"><a href="{href}"><img src="/pix/{pic}" title="{name}"/></a></div>
-    <p class="text-left">Name{}: {name}</p>
-    <p class="text-left">Price{}: {price}</p>
-    <p class="text-left">Order{}: {order}</p>
-    <p class="text-left">Description{}: {description}</p>
-    {/stocks}
-
-    <br><h1>Supplies</h1><br>
-    {supplies}
-    <h3 class="text-right">{name}</h3>
-    <p class="text-left">Name{}: {name}</p>
-    <p class="text-left">receivingNo{}: {receivingNo}</p>
-    <p class="text-left">receivingUnit{}: {receivingUnit}</p>
-    <p class="text-left">receivingCost{}: {receivingCost}</p>
-    <p class="text-left">quantities{}: {quantities}</p>
-    <p class="text-left">Order{}: {order}</p>
-    <p class="text-left">Description{}: {description}</p>
-    {/supplies}
-
-
-
-</div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{total_supply_receivingCost}</div>
+                            <div>Total Supply Receiving Cost</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-tasks fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{average_supply_receivingCost}</div>
+                            <div>Average Supply Receiving Cost</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-shopping-cart fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{total_supply_receivingNo}</div>
+                            <div>Total Supply Receiving Number</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-support fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{total_recipe_cost}</div>
+                            <div>Total Recipe Cost</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-coffee fa-fw"></i> Meet the Developers
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge primary"><i class="fa fa-check"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Ninew Mai</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Ninew is a good developer.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Tracy Liu</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Tracy is also a good developer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge success"><i class="fa fa-key"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Alex Zhang</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Alex is also a good developer.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Gerard Ng</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Lastly but not least, another good developer.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
