@@ -80,7 +80,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-support fa-5x"></i>
+                            <i class="fa fa-balance-scale fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer4" data-from="0" data-to="{total_supply_quantities}"></span>
@@ -99,11 +99,11 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
-            <div class="panel panel-red">
+            <div class="panel panel-yellow">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-comments fa-5x"></i>
+                            <i class="fa fa-cart-plus fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer5" data-from="0" data-to="{total_supply_receivingCost}"></span>
@@ -122,7 +122,7 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
-            <div class="panel panel-yellow">
+            <div class="panel panel-red">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
