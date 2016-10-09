@@ -16,6 +16,9 @@ img.items{
     width:310px;
     margin: 20px 0 0 20px;
 }
+.textbox{
+    width:20%;
+    }
 .desc{
     position:relative;
     float:left;
