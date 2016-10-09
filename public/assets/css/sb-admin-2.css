@@ -1,5 +1,6 @@
 body {
   background-color: #f8f8f8;
+    background-image: url("/assets/images/bg.jpg");
 }
 #wrapper {
   width: 98%;
@@ -7,7 +8,6 @@ body {
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  background-color: pink;
 }
 @media (min-width: 768px) {
   #page-wrapper {

@@ -11,6 +11,17 @@ Team members:
 - space reserved for release
 
 ## [Unreleased] - 2016-10-03
+### Added - 2016-10-09
+- Added css stylesheets and @gerardng @New3 @AlexandyZ
+- Implemented countTo js @gerardng
+
+### Changed - 2016-10-09
+- Redesigned template.php, configured dashboard/homepage controller to reflect other changes @gerardng
+- Fix receiving and inventory views with tables @Tracy815
+- Changed the supplies model, modified the data @Tracy815
+- Updated Salesmenu and sale_view pages @New3
+- Update styles of production_view, recipe_view, update the bootstrap css to latest version @AlexandyZ
+
 ### Added - 2016-10-07
  - Create Sales_Sub controller as a sub-controller
  - Create Salesmenu view for the ales_Sub controller @New3
@@ -24,7 +35,7 @@ Team members:
  - Create Production/Recipe controllors, and related views @AlexandyZ
 
  ### Added - 2016-10-05
-  - Receiving Controller, Supplies Model and receiving_view @tracy815
+  - Receiving Controller, Supplies Model and receiving_view @Tracy815
 
 ### Added - 2016-10-05
  - Sales Controller, Stock Model and sales_view View @New3

@@ -12,7 +12,7 @@ class Supplies extends CI_Model {
 	// The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
 	var $data = array(
 		array('id' => '1', 'name' => 'flour', 'description' => 'white flour powder', 'receiving' => '100', 'Unit' => 'kg', 'Cost' => '12.55', 'stocking' => '350', 'quantities' => '50',  'where' => '/receiving/1'),
-        array('id' => '2', 'name' => 'milk', 'description' => 'Silk, fat:0%', 'receiving' => '200', 'gUnit' => 'L', 'Cost' => '4.25', 'stocking' => '258', 'quantities' => '50', 'where' => '/receiving/2'),
+        array('id' => '2', 'name' => 'milk', 'description' => 'Silk, fat:0%', 'receiving' => '200', 'Unit' => 'L', 'Cost' => '4.25', 'stocking' => '258', 'quantities' => '50', 'where' => '/receiving/2'),
         array('id' => '3', 'name' => 'egg', 'description' => 'white and brown', 'receiving' => '500', 'Unit' => 'Dozen', 'Cost' => '3.25', 'stocking' => '159', 'quantities' => '90',  'where' => '/receiving/3'),
         array('id' => '4', 'name' => 'vegetable oil', 'description' => 'pure, natural', 'receiving' => '200', 'Unit' => 'L', 'Cost' => '8.25', 'stocking' => '360', 'quantities' => '98',  'where' => '/receiving/4'),
         array('id' => '5', 'name' => 'vanilla', 'description' => 'Yummy vanilla', 'receiving' => '200', 'Unit' => 'ml', 'Cost' => '4.25', 'stocking' => '88', 'quantities' => '47',  'where' => '/receiving/5'),

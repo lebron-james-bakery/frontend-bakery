@@ -37,6 +37,8 @@ if (!defined('APPPATH'))
 
     <!-- Custom Fonts -->
     <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,6 +50,8 @@ if (!defined('APPPATH'))
 </head>
 
 <body>
+<h1 class="text-center header-title" align="center">Lebron James Bakery</h1>
+
 <div id="wrapper">
     <!-- application/views/_menubar.php -->
     {menubar}
