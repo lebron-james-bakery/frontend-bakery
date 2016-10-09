@@ -106,9 +106,9 @@
                             <i class="fa fa-cart-plus fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer5" data-from="0" data-to="{total_supply_receivingCost}"></span>
+                            <div class="huge"><span class="timer5" data-from="0" data-to="{total_supply_Cost}"></span>
                             </div>
-                            <div>Total Supply Receiving Cost</div>
+                            <div>Total Supply Cost</div>
                         </div>
                     </div>
                 </div>
@@ -126,12 +126,12 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-tasks fa-5x"></i>
+                            <i class="fa fa-cutlery fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer6" data-from="0" data-to="{average_supply_receivingCost}"></span>
+                            <div class="huge"><span class="timer6" data-from="0" data-to="{average_supply_Cost}"></span>
                             </div>
-                            <div>Average Supply Receiving Cost</div>
+                            <div>Average Supply Cost</div>
                         </div>
                     </div>
                 </div>
@@ -152,9 +152,9 @@
                             <i class="fa fa-shopping-cart fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer7" data-from="0" data-to="{total_supply_receivingNo}"></span>
+                            <div class="huge"><span class="timer7" data-from="0" data-to="{total_supply_receiving}"></span>
                             </div>
-                            <div>Total Supply Receiving Number</div>
+                            <div>Total Supply Receiving</div>
                         </div>
                     </div>
                 </div>
@@ -172,12 +172,12 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-support fa-5x"></i>
+                            <i class="fa fa-birthday-cake fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer8" data-from="0" data-to="{total_recipe_cost}"></span>
+                            <div class="huge"><span class="timer8" data-from="0" data-to="{total_supply_stocking}"></span>
                             </div>
-                            <div>Total Recipe Cost</div>
+                            <div>Total Supply Stock {total_supply_stocking}</div>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-coffee fa-fw"></i> Meet the Developers

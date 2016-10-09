@@ -13,6 +13,10 @@ body {
     background-color: white;
     opacity: 0.9;
 }
+.page-header {
+    font-family: 'VT323', monospace;
+    font-size: 80px;
+}
 #header {
     min-height: 100px;
     background-image: url("/assets/images/header_image.jpeg");

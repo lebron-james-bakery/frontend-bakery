@@ -57,21 +57,24 @@ class Welcome extends Application
         $supply_source = $this->supplies->all();
         $supplies = array ();
         $total_supply_quantities = array ();
-        $total_supply_receivingCost = array ();
-        $total_supply_receivingNo = array ();
+        $total_supply_Cost = array ();
+        $total_supply_receiving = array ();
+        $total_supply_stocking = array ();
 
         foreach ($supply_source as $record)
         {
-            $supplies[] = array ('id' => $record['id'],'name' => $record['name'], 'href' => $record['where'],'receivingCost' => $record['receivingCost'],'quantities' => $record['quantities'], 'receivingUnit' => $record['receivingUnit'], 'receivingNo' => $record['receivingNo'],'description' => $record['description']);
+            $supplies[] = array ('id' => $record['id'],'name' => $record['name'], 'href' => $record['where'],'Cost' => $record['Cost'],'quantities' => $record['quantities'],'stocking' => $record['stocking'], 'Unit' => $record['Unit'], 'receiving' => $record['receiving'],'description' => $record['description']);
+            array_push($total_supply_stocking, $record['stocking']);
             array_push($total_supply_quantities, $record['quantities']);
-            array_push($total_supply_receivingCost, $record['receivingCost']);
-            array_push($total_supply_receivingNo, $record['receivingNo']);
+            array_push($total_supply_Cost, $record['Cost']);
+            array_push($total_supply_receiving, $record['receiving']);
         }
         $this->data['supplies'] = $supplies;
         $this->data['total_supply_quantities'] = array_sum($total_supply_quantities);
-        $this->data['total_supply_receivingCost'] = array_sum($total_supply_receivingCost);
-        $this->data['average_supply_receivingCost'] = array_sum($total_supply_receivingCost) / count($supplies);
-        $this->data['total_supply_receivingNo'] = array_sum($total_supply_receivingNo);
+        $this->data['total_supply_Cost'] = array_sum($total_supply_Cost);
+        $this->data['average_supply_Cost'] = array_sum($total_supply_Cost) / count($supplies);
+        $this->data['total_supply_receiving'] = array_sum($total_supply_receiving);
+        $this->data['total_supply_stocking'] = array_sum($total_supply_stocking);
 
 
         $this->render();
