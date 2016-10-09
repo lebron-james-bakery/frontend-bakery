@@ -1,5 +1,6 @@
 <div class="row">
-        <table class = "ingredient">
+    <div class="desc">
+        <table class = "table table-bordered">
             <tr>
                 <th>Item</th>
                 <th>Receiving Unit</th>
@@ -13,5 +14,6 @@
             </tr>
             {/items}
         </table>
+    </div>
                     
 </div>
