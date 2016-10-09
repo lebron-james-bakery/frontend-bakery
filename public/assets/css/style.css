@@ -24,10 +24,5 @@ img.items{
     position:relative;
     float:left;
 }
-
-.ingredient td {border: 1px solid black;}
-th, td {padding: 15px; text-align: left;}
-
-
 .sales td {border: 0px ;}
 

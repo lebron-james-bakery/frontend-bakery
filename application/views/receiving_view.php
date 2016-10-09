@@ -1,5 +1,5 @@
 <div class="row">
-        <table class = "ingredient">
+        <table class = "table table-bordered">
             <tr>
                 <th>Item</th>
                 <th>Receiving Unit</th>
