@@ -1,13 +1,15 @@
 body {
   background-color: #f8f8f8;
+    background-image: url("/assets/images/bg.jpg");
 }
 #wrapper {
-  width: 100%;
+  width: 98%;
+
 }
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  background-color: pink;
+    background-color: sandybrown;
 }
 @media (min-width: 768px) {
   #page-wrapper {

@@ -16,7 +16,7 @@
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer1" data-from="0" data-to="{total_stock_price}"></span>
                             </div>
-                            <div>Total Stock Price(acutal amount:) {total_stock_price}</div>
+                            <div>Total Stock Price</div>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-6 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-coffee fa-fw"></i> Meet the Developers
@@ -213,7 +213,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="timeline">
+                        <li class="timeline-inverted">
                             <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
                             </div>
                             <div class="timeline-panel">
@@ -237,7 +237,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="timeline">
+                        <li class="timeline-inverted">
                             <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
                             </div>
                             <div class="timeline-panel">

@@ -47,6 +47,7 @@ if (!defined('APPPATH'))
 </head>
 
 <body>
+<h1>HELLO WORLD THIS IS THE HEADER</h1>
 <div id="wrapper">
     <!-- application/views/_menubar.php -->
     {menubar}
