@@ -47,7 +47,6 @@ if (!defined('APPPATH'))
 </head>
 
 <body>
-
 <div id="wrapper">
     <!-- application/views/_menubar.php -->
     {menubar}
@@ -61,8 +60,21 @@ if (!defined('APPPATH'))
 
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/countTo.js"></script>
 <script src="/assets/js/sb-admin-2.js"></script>
 <script src="/assets/js/metisMenu/metisMenu.min.js"></script>
+
+<script type="text/javascript">
+    $('.timer1').countTo();
+    $('.timer2').countTo();
+    $('.timer3').countTo();
+    $('.timer4').countTo();
+    $('.timer5').countTo();
+    $('.timer6').countTo();
+    $('.timer7').countTo();
+    $('.timer8').countTo();
+
+</script>
 
 </body>
 
