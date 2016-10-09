@@ -4,7 +4,7 @@ body {
     background-repeat: repeat-x;
 }
 #content {width:100%; margin-left:5% auto;margin-right:5% auto;}
-img {max-width:150px;max-height:100px;}
+img {max-width:100px;max-height:100px;}
 
 .navbar-inner{text-align: center; -ms-text-size-adjust: 10px;}
 .ingredient td {border: 1px solid black;}
