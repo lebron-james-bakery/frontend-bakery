@@ -3,11 +3,6 @@ body {
     background-image: url("/assets/images/bg.jpg");
     background-repeat: repeat-x;
 }
-#content {
-    /*width:100%; margin-left:5% auto;margin-right:5% auto;*/
-    background: #ffffe9;
-    border-radius:8px;
-}
 #img-logo{
     max-width:150px;
     max-height:100px;
@@ -24,12 +19,12 @@ img.items{
 .desc{
     position:relative;
     float:left;
-    width: 50%;
+    width:60%;
     padding: 20px 0 0 20px;
     margin: 20px 0 0 20px;
-    /*border-style: dotted;
+    border-style: dotted;
     border-radius: 15px;
-    border-colors: red;*/
+    border-color: palevioletred;
 }
 
 .ingredient td {border: 1px solid black;}
