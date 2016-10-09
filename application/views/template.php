@@ -22,7 +22,7 @@ if (!defined('APPPATH'))
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Lebron James Bakery Dashboard</title>
+    <title>{pagetitle}</title>
 
     <!-- Bootstrap Core CSS/JS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
@@ -33,6 +33,7 @@ if (!defined('APPPATH'))
 
     <!-- Custom CSS/JS -->
     <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -77,5 +78,4 @@ if (!defined('APPPATH'))
 </script>
 
 </body>
-
 </html>
