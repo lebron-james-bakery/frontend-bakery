@@ -1,4 +1,4 @@
-<div id="content">
+<div row="row">
     <div class="pic-single thumbnail">
         <img class="items img-rounded" src="/pix/{pic}" title="{name}"/>
     </div>
