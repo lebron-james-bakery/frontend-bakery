@@ -1,19 +1,16 @@
-<div class="row">
-    <div class="desc">
-        <table class = "table table-bordered">
+<table class = "table table-bordered">
             <tr>
-                <th>Item</th>
-                <th>Receiving Unit</th>
-                <th>Qty</th>
+                <th>Item Name</th>
+                <th>Receiving</th>
+                <th>Cost</th>
+                <th>Stock</th>
             </tr>
             {items}
-            <tr>            
-                <td><a href="{href}">{name}</a></td>
-                <td>{receiving}</td>
-                <td><button type="button">Add</button></td>
+            <tr>
+                <td><a class="btn btn-default" role="button" href="/Receiving/edit/{name}">{name}</a></td>
+                <td>{qty_onhand}</td>
+                <td>{qty_inventory}</td>
+                <td>{price}</td>
             </tr>
             {/items}
         </table>
-    </div>
-                    
-</div>
