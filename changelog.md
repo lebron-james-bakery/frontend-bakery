@@ -5,6 +5,16 @@ Team members:
 @AlexandyZ
 @Tracy815
 @gerardng
+## [2.0.0] - 2016-12-02
+### Changed 
+- Modified Receiving controller , added CRUD functional
+- Modified Supplies model to get the data from database
+- Modified receiving_view and Inventory_view to show data from database
+
+### Added
+- Added MY_Model and mtce-errors view
+- Added caboose and restful in the third party folder
+- Added dump database in the data folder
 
 ## [1.0.0] - 2016-10-09
 ### Added
