@@ -1,17 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// the menu basics (text navbar)
-$config['menu_choices'] = array(
-    'menudata' => array(
-        array('name' => 'Home', 'link' => '/'),
-        array('name' => 'Administrator', 'link' => '/administrator'),
-        array('name' => 'Receiving', 'link' => '/receiving'),
-        array('name' => 'Production', 'link' => '/production'),
-        array('name' => 'Sales', 'link' => '/sales'),
-        )
-    );
-
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -381,7 +370,7 @@ $config['encryption_key'] = '';
 $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = 'ci_session';
+$config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

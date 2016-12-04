@@ -54,7 +54,7 @@ if (!defined('APPPATH'))
 
 <div id="wrapper">
     <!-- application/views/_menubar.php -->
-    {menubar}
+    {navbar}
     <!-- /application/views/homepage_view.php -->
     <div id="page-wrapper">
     {content}

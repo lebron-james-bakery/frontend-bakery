@@ -20,7 +20,14 @@ class Receiving extends Application
 	 */
 	public function index()
 	{
-
+	    // Handle user-role to lock out certain types of users
+        $userrole = $this->session->userdata('userrole');
+        if ($userrole != 'admin') {
+            $message = 'You are not authorized to access this page. Go away';
+            $this->data['content'] = $message;
+            $this->render();
+            return;
+        }
 
 
 		// build the list of items, to pass on to our view
@@ -43,20 +50,23 @@ class Receiving extends Application
         $key = $this->session->userdata('key');
         $record = $this->session->userdata('record');
 
-        if (empty($record)) {
+
+        if(empty($record)){
             $record = $this->supplies->get($name);
             $key = $name;
-            $this->session->set_userdata('key', $name);
-            $this->session->set_userdata('record', $record);
+            $this->session->set_userdata('key',$name);
+            $this->session->set_userdata('record',$record);
+
         }
         //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
         $this->data['items'] = $this->supplies->get($name);
+
         $this->data['fname'] = makeTextField('Name', 'name', $record->name);
-       // $this->data['fonhand'] = makeTextField('Onhand', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Receiving amount', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Price', 'price', $record->price);
+
+        $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
 
         $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
 
