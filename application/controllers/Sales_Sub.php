@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kwanc
- * Date: 2016-10-07
- * Time: 10:51 AM
- */
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
