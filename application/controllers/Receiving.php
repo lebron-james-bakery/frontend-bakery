@@ -36,22 +36,32 @@ class Receiving extends Application
 		$this->render();
 	}
 
-   function edit($id = null)
+   function edit($name = null)
     {
+
         // try the session first
+        $key = $this->session->userdata('key');
         $record = $this->session->userdata('record');
 
+        if (empty($record)) {
+            $record = $this->supplies->get($name);
+            $key = $name;
+            $this->session->set_userdata('key', $name);
+            $this->session->set_userdata('record', $record);
+        }
         //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
-        $this->data['items'] = $this->supplies->name;
-        $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
+        $this->data['items'] = $this->supplies->get($name);
+        $this->data['fname'] = makeTextField('Name', 'name', $record->name);
+       // $this->data['fonhand'] = makeTextField('Onhand', 'qty_onhand', $record->qty_onhand);
+        $this->data['freceiving'] = makeTextField('Receiving amount', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeTextField('Price', 'price', $record->price);
 
+        $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
 
         // show the editing form
         $this->data['pagebody'] = "inventory_view";
-        $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
         $this->show_any_errors();
         $this->render();
     }
@@ -73,10 +83,9 @@ class Receiving extends Application
 
         // update our data transfer object
         $incoming = $this->input->post();
-        foreach(get_object_vars($record) as $index => $value)
-            if (isset($incoming[$index]))
-                $record->$index = $incoming[$index];
-
+        foreach(get_object_vars($record) as $key=> $value)
+            if (isset($incoming[$key]))
+                $record->$key = $incoming[$key];
         $this->session->set_userdata('record',$record);
 
         // validate
@@ -88,7 +97,7 @@ class Receiving extends Application
         // check menu code for additions
         if ($key == null)
             if ($this->supplies->exists($record->name))
-                $this->error_messages[] = 'Duplicate key adding new menu item';
+                $this->error_messages[] = 'Duplicate name adding new menu item';
        /* if (! $this->categories->exists($record->category))
             $this->error_messages[] = 'Invalid category code: ' . $record->category;*/
 
