@@ -17,9 +17,9 @@ class Supplies extends MY_Model {
     function rules() {
         $config = [
             ['field'=>'name', 'label'=>'Item name', 'rules'=> 'required'],
-            ['field'=>'qty_onhand', 'label'=>'Item onhand', 'rules'=> 'required|decimal'],
-            ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required|decimal'],
-            ['field'=>'price', 'label'=>'Price', 'rules'=> 'required|decimal'],
+            ['field'=>'qty_onhand', 'label'=>'Item onhand', 'rules'=> 'required|integer'],
+            ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required|integer'],
+            ['field'=>'price', 'label'=>'Price', 'rules'=> 'required|integer'],
         ];
         return $config;
     }
