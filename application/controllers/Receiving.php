@@ -43,7 +43,7 @@ class Receiving extends Application
 		$this->render();
 	}
 
-   function edit($name = null)
+   function edit($id = null)
     {
 
         // try the session first
@@ -52,9 +52,9 @@ class Receiving extends Application
 
 
         if(empty($record)){
-            $record = $this->supplies->get($name);
-            $key = $name;
-            $this->session->set_userdata('key',$name);
+            $record = $this->supplies->get($id);
+            $key = $id;
+            $this->session->set_userdata('key',$id);
             $this->session->set_userdata('record',$record);
 
         }
@@ -62,17 +62,19 @@ class Receiving extends Application
         //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
-        $this->data['items'] = $this->supplies->get($name);
+       // $this->data['items'] = $this->supplies->get($id);
 
-        $this->data['fname'] = makeTextField('Name', 'name', $record->name);
-
+        $this->data['fid'] = makeTextField('Id', 'id', $record->id);
+        //$this->data['fname'] = makeTextField('Name', 'name', $record->name);
+        //$this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
         $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
         $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
 
-        $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
+
 
         // show the editing form
         $this->data['pagebody'] = "inventory_view";
+        $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
         $this->show_any_errors();
         $this->render();
     }
@@ -101,14 +103,14 @@ class Receiving extends Application
 
         // validate
         $this->load->library('form_validation');
-        $this->form_validation->set_rules($this->supplies->rules());
+        $this->form_validation->set_rules($this->supplies->receivingRules());
         if ($this->form_validation->run() != TRUE)
             $this->error_messages = $this->form_validation->error_array();
 
         // check menu code for additions
         if ($key == null)
-            if ($this->supplies->exists($record->name))
-                $this->error_messages[] = 'Duplicate name adding new menu item';
+            if ($this->supplies->exists($record->id))
+                $this->error_messages[] = 'Duplicate id adding new menu item';
        /* if (! $this->categories->exists($record->category))
             $this->error_messages[] = 'Invalid category code: ' . $record->category;*/
 
@@ -140,12 +142,20 @@ class Receiving extends Application
         $this->data['error_messages'] = $this->parser->parse('mtce-errors',
             ['error_messages' => $result], true);
     }
-
-    /*function add() {
+    function delete() {
+        $key = $this->session->userdata('key');
+        $record = $this->session->userdata('record');
+        // only delete if editing an existing record
+        if (! empty($record)) {
+            $this->supplies->delete($key);
+        }
+        $this->index();
+    }
+    function add() {
         $key = NULL;
         $record = $this->supplies->create();
         $this->session->set_userdata('key', $key);
         $this->session->set_userdata('record', $record);
         $this->edit();
-    }*/
+    }
 }
