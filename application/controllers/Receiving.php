@@ -58,6 +58,7 @@ class Receiving extends Application
             $this->session->set_userdata('record',$record);
 
         }
+
         //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
