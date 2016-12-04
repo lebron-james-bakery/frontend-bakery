@@ -1,6 +1,6 @@
 <div class="row">
     <div class="pic-single thumbnail">
-        <img class="items img-rounded" src="/pix/{pic}" title="{name}"/></a>
+        <img class="items img-rounded" src="/pix/{picture}" title="{name}"/></a>
     </div>
     <div class="desc">
         <p class="lead">{name}</p>
