@@ -20,7 +20,14 @@ class Receiving extends Application
 	 */
 	public function index()
 	{
-
+	    // Handle user-role to lock out certain types of users
+        $userrole = $this->session->userdata('userrole');
+        if ($userrole != 'admin') {
+            $message = 'You are not authorized to access this page. Go away';
+            $this->data['content'] = $message;
+            $this->render();
+            return;
+        }
 
 
 		// build the list of items, to pass on to our view
@@ -36,15 +43,22 @@ class Receiving extends Application
 		$this->render();
 	}
 
-   function edit($id = null)
+   function edit($name = null)
     {
         // try the session first
+        $key = $this->session->userdata('key');
         $record = $this->session->userdata('record');
 
+        if(empty($record)){
+            $record = $this->supplies->get($name);
+            $key = $name;
+            $this->session->set_userdata('key',$name);
+            $this->session->set_userdata('record',$record);
+        }
         //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
-        $this->data['items'] = $this->supplies->name;
+        $this->data['items'] = $this->supplies->get($name);
         $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
         $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
 
