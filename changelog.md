@@ -12,11 +12,13 @@ Team members:
 - Gated Receiving, Production, Sales to only admit admin roles @gerardng
 - Refactored navigation bar to use navbar.php as view @gerardng
 - Deleted unused files such as _menubar.php and _template.php @gerardng
+- Added Administrator controller @New3
+- Added Administrator_receiving_view and Administrator_inventory_view @New3
 
 ### Changed - 2016-12-03
-- Modified Receiving controller , added CRUD functional @AlexandyZ
-- Modified Supplies model to get the data from database @AlexandyZ
-- Modified receiving_view and Inventory_view to show data from database @AlexandyZ
+- Modified Receiving controller , added CRUD functional @New3
+- Modified Supplies model to get the data from database @New3
+- Modified receiving_view and Inventory_view to show data from database @New3
 
 ### Added - 2016-12-01
 - Added MY_Model and mtce-errors view @New3
