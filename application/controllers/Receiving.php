@@ -64,15 +64,15 @@ class Receiving extends Application
        // $this->data['items'] = $this->supplies->get($id);
 
         // makeTextField (Label, database column name, record to insert)
-        $this->data['id'] = makeTextField('Id', 'id', $record->id);
-        //$this->data['name'] = makeTextField('Name', 'name', $record->name);
-        //$this->data['onhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
-        $this->data['receiving'] = makeTextField('Receiving amount', 'qty_inventory', $record->qty_inventory);
-        $this->data['price'] = makeTextField('Price', 'price', $record->price);
+        $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
+        //$this->data['fname'] = makeTextField('Name', 'name', $record->name);
+        //$this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
+        $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeLaBel('Price, each', 'price', $record->price);
 
         // show the editing form
         $this->data['pagebody'] = "receiving-edit_view";
-        $this->data['submit'] = makeSubmitButton('Save', 'Submit changes');
+        $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
         $this->show_any_errors();
         $this->render();
     }

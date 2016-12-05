@@ -78,7 +78,7 @@ class Administrator extends Application
 
 
         // show the editing form
-        $this->data['pagebody'] = "administrator_inventory_view";
+        $this->data['pagebody'] = "administrator_receiving-edit_view";
         $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
         $this->show_any_errors();
         $this->render();

@@ -13,7 +13,8 @@ Team members:
 - Refactored navigation bar to use navbar.php as view @gerardng
 - Deleted unused files such as _menubar.php and _template.php @gerardng
 - Added Administrator controller @New3
-- Added Administrator_receiving_view and Administrator_inventory_view @New3
+- Added Administrator_receiving_view and Administrator_receiving-edit_view @New3
+- Added CRUD functions for controllers @New3
 
 ### Changed - 2016-12-03
 - Modified Receiving controller , added CRUD functional @New3
