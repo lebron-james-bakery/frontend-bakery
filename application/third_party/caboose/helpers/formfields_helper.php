@@ -44,7 +44,35 @@ if (!function_exists('makeTextField'))
 	}
 
 }
+/**
+ * Construct a form row to edit a large field.
+ *
+ * @param <type> $label
+ * @param <type> $name
+ * @param <type> $value
+ * @param <type> $explain
+ * @param <type> $size
+ * @param <type> $rows
+ */
+if (!function_exists('makeLaBel'))
+{
 
+    function makeLaBel($label, $name, $value, $explain = "", $maxlen = 40, $size = 25, $disabled = false)
+    {
+        $CI = &get_instance();
+        $parms = array(
+            'label' => $label,
+            'name' => $name,
+            'value' => htmlentities($value, ENT_COMPAT, 'UTF-8'),
+            'explain' => $explain,
+            'maxlen' => $maxlen,
+            'size' => $size,
+            'disabled' => ($disabled ? 'disabled="disabled"' : '')
+        );
+        return $CI->parser->parse('_fields/label', $parms, true);
+    }
+
+}
 
 /**
  * Construct a form row to edit a large field.
