@@ -6,20 +6,21 @@
                 <a href="/" class="mdl-layout__tab">Home</a>
             </li>
             <li>
-                <a href="/admin" class="mdl-layout__tab">Admin</a>
+                <a href="/Admin" class="mdl-layout__tab">Admin</a>
             </li>
             <li>
-                <a href="/production" class="mdl-layout__tab">Production</a>
+                <a href="/Production" class="mdl-layout__tab">Production</a>
             </li>
             <li>
-                <a href="/receiving" class="mdl-layout__tab">Receiving</a>
+                <a href="/Receiving" class="mdl-layout__tab">Receiving</a>
             </li>
             <li>
-                <a href="/sales" class="mdl-layout__tab">Sales</a>
+                <a href="/Sales" class="mdl-layout__tab">Sales</a>
             </li>
             <li>
-                <a href="/toggle" class="mdl-layout__tab">Toggle</a><br>Role: {userrole}
+                <a href="/Toggle" class="mdl-layout__tab">Toggle</a>
             </li>
+            <ol>Role: {userrole}</ol>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

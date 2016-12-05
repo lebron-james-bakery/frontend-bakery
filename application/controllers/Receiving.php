@@ -22,13 +22,12 @@ class Receiving extends Application
 	{
 	    // Handle user-role to lock out certain types of users
         $userrole = $this->session->userdata('userrole');
-        if ($userrole != 'admin') {
+        if ($userrole == 'guest') {
             $message = 'You are not authorized to access this page. Go away';
             $this->data['content'] = $message;
             $this->render();
             return;
         }
-
 
 		// build the list of items, to pass on to our view
 		/*$source = $this->supplies->all();
@@ -64,17 +63,18 @@ class Receiving extends Application
         // build the form fields
        // $this->data['items'] = $this->supplies->get($id);
 
-        $this->data['fid'] = makeTextField('Id', 'id', $record->id);
-        //$this->data['fname'] = makeTextField('Name', 'name', $record->name);
-        //$this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
+        // makeTextField (Label, database column name, record to insert)
+        $this->data['id'] = makeTextField('Id', 'id', $record->id);
+        //$this->data['name'] = makeTextField('Name', 'name', $record->name);
+        //$this->data['onhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
+        $this->data['receiving'] = makeTextField('Receiving amount', 'qty_inventory', $record->qty_inventory);
+        $this->data['price'] = makeTextField('Price', 'price', $record->price);
 
 
 
         // show the editing form
-        $this->data['pagebody'] = "inventory_view";
-        $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
+        $this->data['pagebody'] = "receiving-edit_view";
+        $this->data['submit'] = makeSubmitButton('Save', 'Submit changes');
         $this->show_any_errors();
         $this->render();
     }
@@ -83,6 +83,7 @@ class Receiving extends Application
         $this->session->unset_userdata('key');
         $this->session->unset_userdata('record');
         $this->index();
+        redirect('/receiving');
     }
     function save() {
         // try the session first

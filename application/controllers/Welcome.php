@@ -15,6 +15,15 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
+        // Handle user-role to lock out certain types of users
+        $userrole = $this->session->userdata('userrole');
+        if ($userrole == 'guest') {
+            $message = 'You are not authorized to access this page. Go away';
+            $this->data['content'] = $message;
+            $this->render();
+            return;
+        }
+
 		// this is the view we want shown
 		$this->data['pagebody'] = 'homepage_view';
 

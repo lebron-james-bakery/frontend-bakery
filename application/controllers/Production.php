@@ -17,7 +17,7 @@ class Production extends Application
 	{
         // Handle user-role to lock out certain types of users
         $userrole = $this->session->userdata('userrole');
-        if ($userrole != 'admin') {
+        if ($userrole == 'guest') {
             $message = 'You are not authorized to access this page. Go away';
             $this->data['content'] = $message;
         }
