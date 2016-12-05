@@ -1,24 +1,33 @@
-# Lebron James Bakery logs
+# Lebron James Bakery Logs
 All notable changes to this project will be documented in this file. Most recent updates are on top.
 Team members:
 @New3
 @AlexandyZ
 @Tracy815
 @gerardng
-## [2.0.0] - 2016-12-02
-### Changed 
-- Modified Receiving controller , added CRUD functional
-- Modified Supplies model to get the data from database
-- Modified receiving_view and Inventory_view to show data from database
 
-### Added
-- Added MY_Model and mtce-errors view
-- Added caboose and restful in the third party folder
-- Added dump database in the data folder
+## [2.0.0] - 2016-12-11
+### Added - 2016-12-04
+- Added user-role function in using Toggle controller @gerardng
+- Gated Receiving, Production, Sales to only admit admin roles @gerardng
+- Refactored navigation bar to use navbar.php as view @gerardng
+- Deleted unused files such as _menubar.php and _template.php @gerardng
+- Added Administrator controller @New3
+- Added Administrator_receiving_view and Administrator_inventory_view @New3
+
+### Changed - 2016-12-03
+- Modified Receiving controller , added CRUD functional @New3
+- Modified Supplies model to get the data from database @New3
+- Modified receiving_view and Inventory_view to show data from database @New3
+
+### Added - 2016-12-01
+- Added MY_Model and mtce-errors view @New3
+- Added caboose and restful in the third party folder @New3
+- Added dump database in the data folder @AlexandyZ
 
 ## [1.0.0] - 2016-10-09
 ### Added
-- space reserved for release
+- Released version 1.0.0
 
 ## [Unreleased] - 2016-10-03
 ### Added - 2016-10-09
