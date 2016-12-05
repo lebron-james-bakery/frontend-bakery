@@ -6,7 +6,7 @@
                 <a href="/" class="mdl-layout__tab">Home</a>
             </li>
             <li>
-                <a href="/Admin" class="mdl-layout__tab">Admin</a>
+                <a href="/Administrator" class="mdl-layout__tab">Admin</a>
             </li>
             <li>
                 <a href="/Production" class="mdl-layout__tab">Production</a>
