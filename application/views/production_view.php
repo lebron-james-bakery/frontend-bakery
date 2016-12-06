@@ -1,14 +1,16 @@
-<div class="row">
+<div class="content">
     <h2>{name}</h2>
-    <img class="scale" src="/pix/{pic}">
-    <p>{desc}</p>
-    <span>{price}</span>
-    <span>{qty}</span>
-    <table class="table">
+    <div class="desc">
+        <p>{desc}</p>
+        <label>Price:&nbsp;</label>{price}<span> C$</span></br>
+        <label>Quantity:&nbsp;</label>{qty}<span></span>
+    </div>
+    <img class="scale-detail" src="/pix/{pic}">
+    <table class="table ingredient">
         <tr>
             <th>Name</th>
-            <th>Quantity</th>
-            <th>OnHand Quantity</th>
+            <th>Quantity(g)</th>
+            <th>OnHand Quantity(kg)</th>
         </tr>
         {ingredient}
         <tr>
