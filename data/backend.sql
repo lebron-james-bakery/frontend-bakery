@@ -41,7 +41,7 @@ CREATE TABLE `Recipes` (
   `name` varchar(64) NOT NULL,
   `description` text NOT NULL,
   `price` decimal(10,2) NOT NULL,
-  `qty` decimal(10,2) NOT NULL,
+  `qty` int NOT NULL,
   `picture` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
