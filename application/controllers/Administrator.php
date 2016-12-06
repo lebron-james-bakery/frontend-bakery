@@ -43,18 +43,17 @@ class Administrator extends Application
             $items[] = array ('name' => $record['name'], 'receiving' => $record['receiving'],  'href' => $record['where']);
         }*/
         // this is the view we want shown
-        $this->data['pagebody'] = 'administrator_receiving_view';
-        $this->data['items'] = $this->supplies->all();
+        $this->data['pagebody'] = 'administrator_view';
+        $this->data['supplyItems'] = $this->supplies->all();
+        $this->data['recipeItems'] = $this->recipes->all();
         $this->render();
     }
 
-    function edit($id = null)
+    function editSupplies($id = null)
     {
-
         // try the session first
         $key = $this->session->userdata('key');
         $record = $this->session->userdata('record');
-
 
         if(empty($record)){
             $record = $this->supplies->get($id);
@@ -63,6 +62,7 @@ class Administrator extends Application
             $this->session->set_userdata('record',$record);
 
         }
+
         //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
@@ -73,23 +73,24 @@ class Administrator extends Application
         $this->data['fname'] = makeTextField('Name', 'name', $record->name);
         $this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
         $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeLaBel('Price, each', 'price', $record->price);
-
-
+        $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
 
         // show the editing form
-        $this->data['pagebody'] = "administrator_receiving-edit_view";
+        $this->data['pagebody'] = "administrator_supplies-edit_view";
         $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
         $this->show_any_errors();
         $this->render();
     }
+
     function cancel()
     {
         $this->session->unset_userdata('key');
         $this->session->unset_userdata('record');
         $this->index();
     }
-    function save() {
+
+    function saveSupplies()
+    {
         // try the session first
         $key = $this->session->userdata('key');
         $record = $this->session->userdata('record');
@@ -108,7 +109,7 @@ class Administrator extends Application
 
         // validate
         $this->load->library('form_validation');
-        $this->form_validation->set_rules($this->supplies->rules());
+        $this->form_validation->set_rules($this->supplies->adminSupplyRules());
         if ($this->form_validation->run() != TRUE)
             $this->error_messages = $this->form_validation->error_array();
 
@@ -156,7 +157,8 @@ class Administrator extends Application
         }
         $this->index();
     }
-    function add() {
+
+    function addSupplies() {
         $key = NULL;
         $record = $this->supplies->create();
         $this->session->set_userdata('key', $key);

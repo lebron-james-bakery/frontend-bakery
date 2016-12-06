@@ -102,7 +102,7 @@ class Receiving extends Application
 
         // validate
         $this->load->library('form_validation');
-        $this->form_validation->set_rules($this->supplies->receivingRules());
+        $this->form_validation->set_rules($this->supplies->rules());
         if ($this->form_validation->run() != TRUE)
             $this->error_messages = $this->form_validation->error_array();
 

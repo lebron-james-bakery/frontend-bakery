@@ -1,6 +1,6 @@
 <h2>{action} Administrator Receiving </h2>
 {error_messages}
-<form action="/Administrator/save" method="post" enctype="multipart/form-data">
+<form action="/Administrator/saveSupplies" method="post" enctype="multipart/form-data">
     {fid}
     {freceiving}
     {fprice}
