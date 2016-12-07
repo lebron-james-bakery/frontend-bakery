@@ -11,7 +11,10 @@ class Production extends Application
 	}
 
 	/**
-	 * Homepage for our app
+	 * Controller useed for Production page
+	 *
+	 * Maps to the following url
+	 * 		http://example.com/production
 	 */
 	public function index()
 	{
@@ -23,18 +26,48 @@ class Production extends Application
         }
 
 		// this is the view we want shown
-		$this->data['pagebody'] = 'production_view';
+		$this->data['pagebody'] = 'production_list';
 
 		// build the list of items, to pass on to our view
 		$source = $this->recipes->all();
-		$items = array ();
+		$items = array();
 		foreach ($source as $record)
 		{
-			$items[] = array ('name' => $record['name'], 'pic' => $record['pic'], 'href' => $record['where']);
+			$items[] = array(
+				'id' => $record->id,
+				'name' => $record->name, 
+				'pic' => $record->picture, 
+				'desc' => $record->description,
+				'price' => $record->price, 
+				'qty' => $record->qty);
 		}
 		$this->data['items'] = $items;
 
 		$this->render();
 	}
 
+	public function production_one($which){
+		// this is the view we want shown
+		$this->data['pagebody'] = 'production_view';
+
+		// build the list of items, to pass on to our view
+		$item = $this->productions->get_one($which);
+		
+		$this->data['id'] = $item[0]->id;
+		$this->data['pic'] = $item[0]->picture;		
+		$this->data['name'] = $item[0]->name;
+		$this->data['desc'] = $item[0]->description;
+		$this->data['price'] = $item[0]->price;
+		$this->data['qty'] = $item[0]->qty;
+		$ingredient = array();
+		foreach ($item as $record)
+		{
+			$ingredient[] = array ('ing_name' => $record->inname, 
+							  'ing_qty' => $record->inqty,
+							  'ing_onhand' => $record->qty_onhand);
+		}
+		$this->data['ingredient'] = $ingredient;
+		
+		$this->render();
+	}
 }

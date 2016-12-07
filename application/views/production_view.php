@@ -1,10 +1,23 @@
-<div class="row">
-    {items}
-    <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-        <a href="{href}"><img class="items img-rounded img-responsive" src="/pix/{pic}" title="{name}"/></a>
-        <h5 class="text-center">{name}</h5>
+<div class="content">
+    <h2>{name}</h2>
+    <div class="desc">
+        <p>{desc}</p>
+        <label>Price:&nbsp;</label>{price}<span> C$</span></br>
+        <label>Quantity:&nbsp;</label>{qty}<span></span>
     </div>
-    </div>
-    {/items}
+    <img class="scale-detail" src="/pix/{pic}">
+    <table class="table ingredient">
+        <tr>
+            <th>Name</th>
+            <th>Quantity(g)</th>
+            <th>OnHand Quantity(kg)</th>
+        </tr>
+        {ingredient}
+        <tr>
+            <td>{ing_name}</td>
+            <td>{ing_qty}</td>
+            <td>{ing_onhand}</td>
+        </tr>
+        {/ingredient}
+    </table>
 </div>
