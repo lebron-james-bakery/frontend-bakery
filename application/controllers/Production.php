@@ -58,7 +58,7 @@ class Production extends Application
 		$this->data['name'] = $item[0]->name;
 		$this->data['desc'] = $item[0]->description;
 		$this->data['price'] = $item[0]->price;
-		$this->data['qty'] = $item[0]->qty;
+		$this->data['qty'] = $item[0]->unit;
 		$ingredient = array();
 		foreach ($item as $record)
 		{

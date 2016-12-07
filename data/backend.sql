@@ -41,7 +41,7 @@ CREATE TABLE `Recipes` (
   `name` varchar(64) NOT NULL,
   `description` text NOT NULL,
   `price` decimal(10,2) NOT NULL,
-  `qty` int NOT NULL,
+  `unit` int NOT NULL,
   `picture` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -68,7 +68,7 @@ ADD PRIMARY KEY (`order_id`, `recipe_id`);
 CREATE TABLE `Recipe_supply`(
   `recipe_id` int NOT NULL,
   `supply_id` int NOT NULL,
-  `qty` decimal(10,2),
+  `amount` decimal(10,2),
   FOREIGN KEY (`supply_id`) REFERENCES `Supplies`(`id`),
   FOREIGN KEY (`recipe_id`) REFERENCES `Recipes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
