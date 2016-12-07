@@ -28,6 +28,23 @@ class Sales extends Application
 
     public function summarize() 
     {
+        // identify all of the order files
+        $this->load->helper('directory');
+        $candidates = directory_map('../data/');
+        $parms = array();
+        foreach ($candidates as $filename) {
+        if (substr($filename,0,5) == 'order') {
+            // restore that order object
+            $orders = new Orders ('../data/' . $filename);
+            // setup view parameters
+            $parms[] = array(
+                'number' => $orders->number,
+                'datetime' => $orders->datetime,
+                'total' => $orders->total()
+                    );
+            }
+        }
+        $this->data['Orders'] = $parms;
         $this->data['pagebody'] = 'summary';
         $this->render('template');  // use the default template
     }
@@ -49,14 +66,10 @@ class Sales extends Application
         $stuff = $orders->receipt();
         $this->data['receipt'] = $this->parsedown->parse($stuff);
         $this->data['content'] = '';
-        $this->data['items'] = $this->recipes->all();
-        // $this->data['recipes'] = '';
-        $count = 1;
-        $chunk = 'recipes' . $count;
+        $this->data['items'] = '';
         foreach($this->recipes->all() as $menuitem) {
-           $this->data[$chunk] .= $this->parser->parse('menuitem-shop',$menuitem,true);
+           $this->data['items'] .= $this->parser->parse('menuitem-shop',$menuitem,true);
         }
-        $count++;
         $this->render('sales_view'); 
 	}
 
@@ -77,6 +90,26 @@ class Sales extends Application
         }
 
         $this->index();
+    }
+
+    public function checkout() 
+    {
+        $orders = new Orders($this->session->userdata('orders'));
+        // ignore invalid requests
+        /*if (! $orders->validate())
+            redirect('/Sales');*/
+
+        $orders->save();
+        $this->session->unset_userdata('orders');
+        redirect('/Sales');
+    }
+
+    public function examine($which)
+     {
+        $orders = new Orders ('../data/order' . $which . '.xml');
+        $stuff = $orders->receipt();
+        $this->data['content'] = $this->parsedown->parse($stuff);
+        $this->render();
     }
 
 }

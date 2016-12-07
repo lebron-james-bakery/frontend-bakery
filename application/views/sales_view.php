@@ -44,18 +44,20 @@
     {navbar}
     <!-- /application/views/homepage_view.php -->
     <div id="page-wrapper">               
-        <div class="row">          
-           {recipes1}
+        <div class="row">  
+            <div class='col-md-9'>
+                {items}
+            </div> 
             <div class='col-md-3'>
                 <div class="row">
                     {receipt}
                 </div>
                 <div class="row">
-                    <a class="btn btn-primary btn-default" role="button" href="/shopping/checkout">Checkout</a>
+                    <a class="btn btn-primary btn-default" role="button" href="/Sales/checkout">Checkout</a>
                     <a class="btn btn-default" role="button" href="/Sales/cancel">Cancel This Order</a>
                 </div>
-            </div>
-        </div>
+            </div>       
+        </div>      
     {content}
     </div>
     <!-- /#page-wrapper -->
