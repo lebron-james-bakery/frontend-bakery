@@ -7,6 +7,11 @@ Team members:
 @gerardng
 
 ## [2.0.0] - 2016-12-11
+### Added - 2016-12-07
+- Separated front & backend features @AlexandyZ @New3
+- Remodeled database @AlexandyZ
+- Implemented tracking
+
 ### Added - 2016-12-04
 - Added user-role function in using Toggle controller @gerardng
 - Gated Receiving, Production, Sales to only admit admin roles @gerardng

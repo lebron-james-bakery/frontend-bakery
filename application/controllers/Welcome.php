@@ -87,6 +87,10 @@ class Welcome extends Application
         $this->data['total_supply_receiving'] = array_sum($total_supply_receiving);
         $this->data['total_supply_stocking'] = array_sum($total_supply_stocking);
 */
+        $this->load->helper('file');
+        $totalMoney = file_get_contents('../data/money.txt');
+        $this->data['totalMoney'] = $totalMoney;
+
 
         $this->render();
 	}

@@ -101,7 +101,18 @@ class Sales extends Application
 
         $orders->save();
         $this->session->unset_userdata('orders');
+
+        // Calculate store's running total
+        $this->load->helper('file');
+        $currentTotal = file_get_contents('../data/money.txt');
+
+        $newRunningTotal = $orders->total() + $currentTotal;
+        if ( ! write_file('../data/money.txt', $newRunningTotal))
+        {
+            echo 'Unable to write the file';
+        }
         redirect('/Sales');
+
     }
 
     public function examine($which)
@@ -111,5 +122,7 @@ class Sales extends Application
         $this->data['content'] = $this->parsedown->parse($stuff);
         $this->render();
     }
+
+
 
 }

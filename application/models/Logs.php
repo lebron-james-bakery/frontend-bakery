@@ -9,43 +9,43 @@
  */
 class Logs extends CI_Model {
 
-	// The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
+    // The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
     // This data is DUMMY DATA. Do not use for actual release
-	var $data = array(
-		array('id' => '1', 'who' => 'Almond Tea Cake', 'pic' => 'Almond_Tea_Cake.jpg', 'where' => '/sleep',
-			'what' => 'When I die, I want to go peacefully like my grandfather did–in his sleep. Not yelling and screaming like the passengers in his car.'),
-		array('id' => '2', 'who' => 'Applesauce Spice Cake', 'pic' => 'Applesauce_Spice_Cake.jpg', 'where' => '/lock/em/up',
-			'what' => 'I have six locks on my door all in a row. When I go out, I lock every other one. I figure no matter how long somebody stands there picking the locks, they are always locking three.'),
-		array('id' => '3', 'who' => 'Apricot Bars', 'pic' => 'Apricot_bars.jpg', 'where' => '/show/3',
-			'what' => 'The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage.'),
-		array('id' => '4', 'who' => 'BG Blueberry Lemon Coffee Cake', 'pic' => 'BG_Blueberry_Lemmon_Coffee_Cake.jpg', 'where' => '/dunno',
-			'what' => 'How do you get a sweet little 80-year-old lady to say the F word? Get another sweet little 80-year-old lady to yell “BINGO!”'),
-		array('id' => '5', 'who' => 'Chocolate Brownies', 'pic' => 'Chocolate_Brownies.jpg', 'where' => '/wise/bingo',
-			'what' => 'By all means, marry. If you get a good wife, you’ll become happy; if you get a bad one, you’ll become a philosopher.'),
-		array('id' => '6', 'who' => 'Swedish Rum Cake', 'pic' => 'Swedish_Rum_Cake.jpg', 'where' => '/comp4711/wisdom',
-			'what' => 'Those people who think they know everything are a great annoyance to those of us who do.'),
+    var $data = array(
+        array('id' => '1', 'who' => 'Almond Tea Cake', 'pic' => 'Almond_Tea_Cake.jpg', 'where' => '/sleep',
+            'what' => 'When I die, I want to go peacefully like my grandfather did–in his sleep. Not yelling and screaming like the passengers in his car.'),
+        array('id' => '2', 'who' => 'Applesauce Spice Cake', 'pic' => 'Applesauce_Spice_Cake.jpg', 'where' => '/lock/em/up',
+            'what' => 'I have six locks on my door all in a row. When I go out, I lock every other one. I figure no matter how long somebody stands there picking the locks, they are always locking three.'),
+        array('id' => '3', 'who' => 'Apricot Bars', 'pic' => 'Apricot_bars.jpg', 'where' => '/show/3',
+            'what' => 'The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage.'),
+        array('id' => '4', 'who' => 'BG Blueberry Lemon Coffee Cake', 'pic' => 'BG_Blueberry_Lemmon_Coffee_Cake.jpg', 'where' => '/dunno',
+            'what' => 'How do you get a sweet little 80-year-old lady to say the F word? Get another sweet little 80-year-old lady to yell “BINGO!”'),
+        array('id' => '5', 'who' => 'Chocolate Brownies', 'pic' => 'Chocolate_Brownies.jpg', 'where' => '/wise/bingo',
+            'what' => 'By all means, marry. If you get a good wife, you’ll become happy; if you get a bad one, you’ll become a philosopher.'),
+        array('id' => '6', 'who' => 'Swedish Rum Cake', 'pic' => 'Swedish_Rum_Cake.jpg', 'where' => '/comp4711/wisdom',
+            'what' => 'Those people who think they know everything are a great annoyance to those of us who do.'),
     );
 
-	// Constructor
-	public function __construct()
-	{
-		parent::__construct();
-	}
+    // Constructor
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-	// retrieve a single quote
-	public function get($which)
-	{
-		// iterate over the data until we find the one we want
-		foreach ($this->data as $record)
-			if ($record['id'] == $which)
-				return $record;
-		return null;
-	}
+    // retrieve a single quote
+    public function get($which)
+    {
+        // iterate over the data until we find the one we want
+        foreach ($this->data as $record)
+            if ($record['id'] == $which)
+                return $record;
+        return null;
+    }
 
-	// retrieve all of the quotes
-	public function all()
-	{
-		return $this->data;
-	}
+    // retrieve all of the quotes
+    public function all()
+    {
+        return $this->data;
+    }
 
 }

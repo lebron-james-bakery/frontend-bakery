@@ -4,6 +4,7 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+    Current moneys: {totalMoney}
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-3 col-md-3">
@@ -20,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="/Administrator">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
