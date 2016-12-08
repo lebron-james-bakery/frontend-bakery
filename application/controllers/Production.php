@@ -62,12 +62,12 @@ class Production extends Application
 		$ingredient = array();
 		foreach ($item as $record)
 		{
-			$ingredient[] = array ('ing_name' => $record->inname, 
+			$ingredient[] = array ('ing_name' => $this->supplies->get($record->supply_id)->name, 
 							  'ing_qty' => $record->inqty,
-							  'ing_onhand' => $record->qty_onhand);
+							  'ing_onhand' => $this->supplies->get($record->supply_id)->qty_onhand);
 		}
 		$this->data['ingredient'] = $ingredient;
-		
+
 		$this->render();
 	}
 }
