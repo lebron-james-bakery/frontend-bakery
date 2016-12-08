@@ -7,7 +7,7 @@
  *
  * @author Gerard
  */
-define('REST_SERVER', 'http://bakery-backend.local');      // the REST server host
+define('REST_SERVER', 'http://backend.local');      // the REST server host
 define('REST_PORT', $_SERVER['SERVER_PORT']);       // the port you are running the server on
 
 class Supplies extends MY_Model {
