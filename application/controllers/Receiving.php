@@ -44,6 +44,14 @@ class Receiving extends Application
 
    function edit($id = null)
     {
+        // Handle user-role to lock out certain types of users
+        $userrole = $this->session->userdata('userrole');
+        if ($userrole == 'guest') {
+            $message = 'You are not authorized to access this page. Go away';
+            $this->data['content'] = $message;
+            $this->render();
+            return;
+        }
 
         // try the session first
         $key = $this->session->userdata('key');
@@ -65,10 +73,10 @@ class Receiving extends Application
 
         // makeTextField (Label, database column name, record to insert)
         $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
-        //$this->data['fname'] = makeTextField('Name', 'name', $record->name);
-        //$this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
+        $this->data['fname'] = makeLabel('Name', 'name', $record->name);
+        $this->data['fonhand'] = makeLabel('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
         $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeLaBel('Price, each', 'price', $record->price);
+        $this->data['fprice'] = makeLabel('Price, each', 'price', $record->price);
 
         // show the editing form
         $this->data['pagebody'] = "receiving-edit_view";
@@ -151,6 +159,15 @@ class Receiving extends Application
         $this->index();
     }
     function add() {
+        // Handle user-role to lock out certain types of users
+        $userrole = $this->session->userdata('userrole');
+        if ($userrole == 'guest') {
+            $message = 'You are not authorized to access this page. Go away';
+            $this->data['content'] = $message;
+            $this->render();
+            return;
+        }
+
         $key = NULL;
         $record = $this->supplies->create();
         $this->session->set_userdata('key', $key);

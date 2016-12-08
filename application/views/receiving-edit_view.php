@@ -2,6 +2,8 @@
 {error_messages}
 <form action="/Receiving/save" method="post" enctype="multipart/form-data">
     {fid}
+    {fname}
+    {fonhand}
     {freceiving}
     {fprice}
     {zsubmit}

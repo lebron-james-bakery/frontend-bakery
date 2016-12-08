@@ -38,13 +38,15 @@ class Welcome extends Application
         // END OF EXAMPLE
 
         // build the list of recipes, to pass on to our homepage_view
-        /*$recipe_source = $this->recipes->all();
+        /*
+
+         $recipe_source = $this->recipes->all();
         $recipes = array ();
         foreach ($recipe_source as $record)
         {
             $recipes[] = array ('id' => $record['id'],'name' => $record['name'], 'pic' => $record['pic'], 'href' => $record['where'], 'ingredients' => $record['ingredients'],'ingredientAmount' => count($record['ingredients'], COUNT_RECURSIVE));
         }
-        $this->data['recipes'] = $recipes;*/
+        $this->data['recipes'] = $recipes;
 
         // build the list of stocks, to pass on to our homepage_view
         $stock_source = $this->stock->all();

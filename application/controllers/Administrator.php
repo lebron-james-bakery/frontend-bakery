@@ -69,9 +69,8 @@ class Administrator extends Application
         // $this->data['items'] = $this->supplies->get($id);
 
         $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
-        //$this->data['fid']=$this->supplies->get($record->name);
         $this->data['fname'] = makeTextField('Name', 'name', $record->name);
-        $this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
+        $this->data['fonhand'] = makeLaBel('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
         $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
         $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
 
