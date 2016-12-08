@@ -39,7 +39,7 @@ class Production extends Application
 				'pic' => $record->picture, 
 				'desc' => $record->description,
 				'price' => $record->price, 
-				'qty' => $record->qty);
+				'qty' => $record->unit);
 		}
 		$this->data['items'] = $items;
 

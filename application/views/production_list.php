@@ -19,4 +19,3 @@
     </tr>
     {/items}
 </table>
-<a class="btn btn-default" role="button" href="/production/new_production">Add a New Production</a>
