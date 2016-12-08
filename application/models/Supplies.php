@@ -17,19 +17,19 @@ class Supplies extends MY_Model {
     function rules() {
         $config = [
             ['field'=>'id', 'label'=>'Menu code'],
-           ['field'=>'name', 'label'=>'Item name','rules'=> 'required'],
-            ['field'=>'qty_onhand', 'label'=>'Item onhand','rules'=> 'required|decimal'],
+            ['field'=>'name', 'label'=>'Item name'],
+            ['field'=>'qty_onhand', 'label'=>'Item onhand'],
             ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required|decimal'],
             ['field'=>'price', 'label'=>'Price'],
         ];
         return $config;
     }
 
-    function receivingRules() {
+    function adminSupplyRules() {
         $config = [
             ['field'=>'id', 'label'=>'Menu code'],
-            ['field'=>'name', 'label'=>'Item name'],
-            ['field'=>'qty_onhand', 'label'=>'Item onhand'],
+            ['field'=>'name', 'label'=>'Item name','rules'=> 'required'],
+            ['field'=>'qty_onhand', 'label'=>'Item onhand','rules'=> 'required|decimal'],
             ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required|decimal'],
             ['field'=>'price', 'label'=>'Price'],
         ];

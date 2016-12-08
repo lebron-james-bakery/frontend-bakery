@@ -1,7 +1,9 @@
-<h2>Menu Maintenance - {action}</h2>
+<h2>{action} Receiving </h2>
 {error_messages}
 <form action="/Receiving/save" method="post" enctype="multipart/form-data">
     {fid}
+    {fname}
+    {fonhand}
     {freceiving}
     {fprice}
     {zsubmit}
