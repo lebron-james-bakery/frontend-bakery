@@ -12,7 +12,7 @@ class Productions extends MY_Model {
     // to get one production information	
     function get_one($id)
     {
-        $this->db->select('r.id, r.name, r.description, r.price, r.qty, r.picture, s.name as inname, rs.qty as inqty, s.qty_onhand');
+        $this->db->select('r.id, r.name, r.description, r.price, r.unit, r.picture, s.name as inname, rs.amount as inqty, s.qty_onhand');
 		$this->db->from('Recipes r');
 		$this->db->join('Recipe_supply rs', 'rs.recipe_id = r.id','left');
 		$this->db->join('Supplies s', 's.id = rs.supply_id', 'left');
