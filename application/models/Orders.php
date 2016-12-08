@@ -39,12 +39,13 @@ class Orders extends CI_Model {
         }
     }
 
-    public function receipt() 
+    public function receipt($which=null) 
     {
         $total = 0;
         $result = $this->data['pagetitle'] . '  ' . PHP_EOL;
         $result .= date(DATE_ATOM) . PHP_EOL;
         $result .= PHP_EOL . 'Your Order:'. PHP_EOL . PHP_EOL;
+        $result .= PHP_EOL . '<h1>' . $which . '</h1>'. PHP_EOL . PHP_EOL;
         foreach($this->items as $key => $value) {
             $recipes = $this->recipes->get($key);
             $result .= '- ' . $value . ' ' . $recipes->name . PHP_EOL;
@@ -61,10 +62,10 @@ class Orders extends CI_Model {
         foreach($this->recipes->all() as $id => $recipes)
             $found[$recipes->id] = false;
         // what do we have?
-        foreach($this->items as $code => $item) {
+        /*foreach($this->items as $code => $item) {
             $menuitem = $this->recipes->get($code);
             $found[$menuitem->recipes] = true; 
-        }
+        }*/
         // if any categories are empty, the order is not valid
         foreach($found as $cat => $ok)
             if (! $ok) return false;
