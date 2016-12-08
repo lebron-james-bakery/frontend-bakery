@@ -118,7 +118,7 @@ class Sales extends Application
     public function examine($which)
      {
         $orders = new Orders ('../data/order' . $which . '.xml');
-        $stuff = $orders->receipt();
+        $stuff = $orders->receipt($which);
         $this->data['content'] = $this->parsedown->parse($stuff);
         $this->render();
     }
