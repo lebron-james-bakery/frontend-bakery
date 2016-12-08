@@ -57,9 +57,7 @@ CREATE TABLE `Order_recipe` (
   `order_id` int NOT NULL,
   `recipe_id` int NOT NULL,
   `qty` decimal(10,2) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  FOREIGN KEY (`order_id`) REFERENCES `Orders`(`id`),
-  FOREIGN KEY (`recipe_id`) REFERENCES `Recipes` (`id`)
+  `price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `Order_recipe`
@@ -68,9 +66,7 @@ ADD PRIMARY KEY (`order_id`, `recipe_id`);
 CREATE TABLE `Recipe_supply`(
   `recipe_id` int NOT NULL,
   `supply_id` int NOT NULL,
-  `amount` decimal(10,2),
-  FOREIGN KEY (`supply_id`) REFERENCES `Supplies`(`id`),
-  FOREIGN KEY (`recipe_id`) REFERENCES `Recipes` (`id`)
+  `amount` decimal(10,2)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `Recipe_supply`
@@ -80,7 +76,7 @@ ADD PRIMARY KEY (`recipe_id`, `supply_id`);
 -- Insert data into tables
 --
 
-INSERT INTO `Recipes` (`name`,`description`,`price`,`qty`,`picture`)
+INSERT INTO `Recipes` (`name`,`description`,`price`,`unit`,`picture`)
 VALUES
 ('Apple Coffee Cake', 'Almost every Sunday morning growing up, my father would make a huge apple coffee cake for us after church. We would hungrily watch him pour the batter into the pyrex baking dish, insert apple slices, and sprinkle with streusel topping. </br>Oh the magic of baking to young eyes! A half hour later the coffee cake would emerge from the oven, perfectly risen and crusted with brown sugar.', 3.25, 20, 'apple-coffee-cake.jpg'),
 ('Spicy Paleo Pumpkin Muffins', 'Pumpkin pancakes and cinnamon rolls are well and good, but what about those of us who like something savory instead of sweet for our weekday breakfasts? These Paleo muffins prove that pumpkin plays just as well with cumin and paprika as it does with cinnamon and nutmeg. </br>These muffins make a great grab-and-go breakfast or a healthy afternoon snack. They are also grain-free and very nutritious!', 3.5, 35,'Spicy-Paleo-Pumpkin-Muffins.jpg'),
@@ -140,7 +136,7 @@ VALUES
 ('Cream cheese', 4, 8, 220),
 ('Raspberry',1,4, 122);
 
-INSERT INTO `Recipe_supply` (`recipe_id`, `supply_id`, `qty`)
+INSERT INTO `Recipe_supply` (`recipe_id`, `supply_id`, `amount`)
 VALUES
 (1, 1, 280),
 (1, 2, 10),
