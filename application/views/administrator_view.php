@@ -58,7 +58,7 @@
                         <th>Picture</th>
                     </tr>
                     {recipeItems}
-                    <tr> <td><a class="btn btn-default" role="button" href="/Administrator/editRecipes/{id}">{id}</a></td>
+                    <tr> <td><a class="btn btn-default" role="button" href="/Production/edit/{id}">{id}</a></td>
                         <td>{name}</td>
                         <td>{description}</td>
                         <td>{price}</td>

@@ -67,7 +67,7 @@ class Administrator extends Application
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
         // $this->data['items'] = $this->supplies->get($id);
-
+        print_r($record);
         $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
         $this->data['fname'] = makeTextField('Name', 'name', $record->name);
         $this->data['fonhand'] = makeLaBel('On Hand amount, each', 'qty_onhand', $record->qty_onhand);

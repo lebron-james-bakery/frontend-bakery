@@ -37,12 +37,7 @@ img.items{
 .textbox{
     width:20%;
     }
-.desc{
-    position:relative;
-    float: left;
-    width:55%;
-    margin-right: 20px;
-}
+    
 .sales td {border: 0px ;}
 
 .scale-mini{
