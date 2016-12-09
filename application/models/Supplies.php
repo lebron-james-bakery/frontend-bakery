@@ -7,7 +7,7 @@
  *
  * @author Gerard
  */
-define('REST_SERVER', 'http://bakery-backend.local');      // the REST server host
+define('REST_SERVER','http://backend-bakery.local');      // the REST server host
 define('REST_PORT', $_SERVER['SERVER_PORT']);       // the port you are running the server on
 
 class Supplies extends MY_Model {
@@ -34,7 +34,7 @@ class Supplies extends MY_Model {
         $config = [
             ['field'=>'id', 'label'=>'Menu code'],
             ['field'=>'name', 'label'=>'Item name','rules'=> 'required'],
-            ['field'=>'qty_onhand', 'label'=>'Item onhand','rules'=> 'required|decimal'],
+            ['field'=>'qty_onhand', 'label'=>'Item onhand','rules'=> 'decimal'],
             ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required|decimal'],
             ['field'=>'price', 'label'=>'Price'],
         ];

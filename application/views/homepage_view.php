@@ -4,24 +4,23 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
-    Current moneys: {totalMoney}
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-3 col-md-3">
-            <div class="panel panel-red">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-book fa-5x"></i>
+                            <i class="fa fa-university  fa-4x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer1" data-from="0" data-to="{total_stock_price}"></span>
+                            <div class="huge"><span class="timer1" data-from="0" data-to="{totalMoney}"></span>
                             </div>
-                            <div>Total Stock Price</div>
+                            <div>Store Money ($)</div>
                         </div>
                     </div>
                 </div>
-                <a href="/Administrator">
+                <a href="/Sales">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -31,20 +30,20 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
-            <div class="panel panel-green">
+            <div class="panel panel-warning">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-tasks fa-5x"></i>
+                            <i class="fa fa-money fa-4x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer2" data-from="0" data-to="{average_stock_price}"></span>
+                            <div class="huge"><span class="timer2" data-from="0" data-to="{totalSales}"></span>
                             </div>
-                            <div>Average Stock Price</div>
+                            <div>Total Sales ($)</div>
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="/Sales">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -54,20 +53,20 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
-            <div class="panel panel-yellow">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
+                            <i class="fa fa-eyedropper fa-4x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer3" data-from="0" data-to="{total_stock_order}"></span>
+                            <div class="huge"><span class="timer3" data-from="0" data-to="{totalIngredientsConsumed}"></span>
                             </div>
-                            <div>Total Stock Order</div>
+                            <div>Ingredients Consumed ($)</div>
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="/Sales">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -77,112 +76,20 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
-            <div class="panel panel-green">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-balance-scale fa-5x"></i>
+                            <i class="fa fa-balance-scale fa-4x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer4" data-from="0" data-to="{total_supply_quantities}"></span>
+                            <div class="huge"><span class="timer4" data-from="0" data-to="{totalReceiving}"></span>
                             </div>
-                            <div>Total Supply Quantities</div>
+                            <div>Spent on Supplies ($)</div>
                         </div>
                     </div>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-            <div class="panel panel-yellow">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-cart-plus fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer5" data-from="0" data-to="{total_supply_Cost}"></span>
-                            </div>
-                            <div>Total Supply Cost</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-cutlery fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer6" data-from="0" data-to="{average_supply_Cost}"></span>
-                            </div>
-                            <div>Average Supply Cost</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer7" data-from="0" data-to="{total_supply_receiving}"></span>
-                            </div>
-                            <div>Total Supply Receiving</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-            <div class="panel panel-yellow">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-birthday-cake fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"><span class="timer8" data-from="0" data-to="{total_supply_stocking}"></span>
-                            </div>
-                            <div>Total Supply Stock {total_supply_stocking}</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
+                <a href="/Receiving">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -193,11 +100,33 @@
         </div>
     </div>
     <!-- /.row -->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Receiving Logs Dump (from data/buy-logs.txt) </h3>
+        </div>
+        <div class="panel-body">
+            {transactionLogs}
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Sales Log Dump (from data/orders_) </h3>
+        </div>
+        <div class="panel-body">
+            {Orders}
+            Reciept # <a href="/Sales/examine/{number}">{number}</a>, total of ${total} in sales - {datetime}
+            <br><br>
+            {/Orders}
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-coffee fa-fw"></i> Meet the Developers
+                    <i class="fa fa-coffee fa-fw"></i> Use Cases
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -207,10 +136,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="timeline-title">Ninew Mai</h4>
+                                    <h4 class="timeline-title">Admin</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p>Ninew is a good developer.</p>
+                                    <p>Allows editing of data-tables {Admin}</p>
                                 </div>
                             </div>
                         </li>
@@ -219,10 +148,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="timeline-title">Tracy Liu</h4>
+                                    <h4 class="timeline-title">Production</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p>Tracy is also a good developer</p>
+                                    <p>Displays all the recipes {Admin, User}</p>
                                 </div>
                             </div>
                         </li>
@@ -231,10 +160,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="timeline-title">Alex Zhang</h4>
+                                    <h4 class="timeline-title">Receiving</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p>Alex is also a good developer.</p>
+                                    <p>Displays list of items in pantry, allowing to order more. {Admin, User}</p>
                                 </div>
                             </div>
                         </li>
@@ -243,10 +172,10 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4 class="timeline-title">Gerard Ng</h4>
+                                    <h4 class="timeline-title">Sales</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p>Lastly but not least, another good developer.</p>
+                                    <p>Displays items available for order for point of sale {Admin, User, Guest}</p>
                                 </div>
                             </div>
                         </li>
@@ -259,3 +188,6 @@
         <!-- /.col-lg-8 -->
     </div>
     <!-- /.row -->
+
+
+

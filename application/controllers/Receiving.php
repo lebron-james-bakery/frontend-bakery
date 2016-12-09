@@ -3,6 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Menu Model + Crud Controller
+
 class Receiving extends Application
 {
     function __construct()
@@ -75,8 +76,8 @@ class Receiving extends Application
         $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
         $this->data['fname'] = makeLabel('Name', 'name', $record->name);
         $this->data['fonhand'] = makeLabel('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeLabel('Price, each', 'price', $record->price);
+        $this->data['freceiving'] = makeTextField('Receiving amount, units', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeTextField('Price, per unit', 'price', $record->price);
 
         // show the editing form
         $this->data['pagebody'] = "receiving-edit_view";
@@ -132,6 +133,11 @@ class Receiving extends Application
             $this->supplies->add($record);
         else
             $this->supplies->update($record);
+
+        // log transactions
+        $string = "Ordered " . $record->qty_inventory . " quantities of " . $record->name . " for " . $record->price . " $ per unit - " . date(DATE_ATOM) . PHP_EOL;
+        file_put_contents('../data/buy-logs.txt', $string.PHP_EOL , FILE_APPEND | LOCK_EX);
+
         // and redisplay the list
         $this->index();
     }

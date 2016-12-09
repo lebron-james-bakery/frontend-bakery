@@ -47,7 +47,7 @@
         <div class="row">  
             <div class='col-md-9'>
                 {items}
-            </div> 
+            </div>
             <div class='col-md-3'>
                 <div class="row">
                     {receipt}
@@ -57,7 +57,7 @@
                     <a class="btn btn-default" role="button" href="/Sales/cancel">Cancel This Order</a>
                 </div>
             </div>       
-        </div>      
+        </div>
     {content}
     </div>
     <!-- /#page-wrapper -->

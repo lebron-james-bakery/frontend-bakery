@@ -32,6 +32,8 @@ class Recipes extends MY_Model {
         return $config;
     }
 
+
+
 	// retrieve a single quote
 	/*public function get($which)
 	{
