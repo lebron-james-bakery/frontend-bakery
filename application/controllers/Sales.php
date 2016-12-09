@@ -77,6 +77,7 @@ class Sales extends Application
     {
         $orders = new Orders($this->session->userdata('orders'));
         $orders->additem($what);
+        $orders->updateRecipes($what);
         $this->keep_shopping();
         $this->session->set_userdata('orders',(array)$orders);
         redirect('/Sales');

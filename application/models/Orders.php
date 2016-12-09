@@ -39,6 +39,23 @@ class Orders extends CI_Model {
         }
     }
 
+    public function updateRecipes($which=null){
+        if ($which == null){
+            return;
+        }
+
+        $menu = $this->recipes->get($which);
+        $val = $menu->unit - 1;
+        $record = array(
+                   'id' => $menu->id,
+                   'name' => $menu->name,
+                   'description' => $menu->description,
+                   'price' => $menu->price,
+                   'unit' => $val
+                  );
+        $this->recipes->update($record);
+    }
+
     public function receipt($which=null) 
     {
         $total = 0;
