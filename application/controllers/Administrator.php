@@ -68,11 +68,12 @@ class Administrator extends Application
         // build the form fields
         // $this->data['items'] = $this->supplies->get($id);
 
-        $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
-        $this->data['fname'] = makeTextField('Name', 'name', $record->name);
-        $this->data['fonhand'] = makeTextField('On Hand amount', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Amount to Receive', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Cost', 'price', $record->price);
+        $this->data['fid'] = makeLaBel('Item Id', 'id', $record->id);
+        $this->data['fname'] = makeTextField('Item Name', 'name', $record->name);
+        $this->data['fonhand'] = makeTextField('On Hand amount, units (Kg)', 'qty_onhand', $record->qty_onhand);
+        $this->data['freceiving'] = makeTextField('Receiving amount, units (Kg)', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeTextField('Price (C$), per unit', 'price', $record->price);
+
 
         // show the editing form
         $this->data['pagebody'] = "administrator_supplies-edit_view";
@@ -80,6 +81,8 @@ class Administrator extends Application
         $this->show_any_errors();
         $this->render();
     }
+
+
 
     function cancel()
     {
@@ -157,11 +160,11 @@ class Administrator extends Application
         $this->index();
     }
 
-    function addSupplies() {
+   /* function addSupplies() {
         $key = NULL;
         $record = $this->supplies->create();
         $this->session->set_userdata('key', $key);
         $this->session->set_userdata('record', $record);
-        $this->edit();
-    }
+        $this->editSupplies();
+    }*/
 }

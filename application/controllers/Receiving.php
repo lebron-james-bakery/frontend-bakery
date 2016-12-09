@@ -11,6 +11,7 @@ class Receiving extends Application
         parent::__construct();
         $this->load->helper('formfields_helper');
         $this->error_messages = array();
+        $this->load->model('supplies');
     }
 
 	/**
@@ -42,6 +43,11 @@ class Receiving extends Application
 		$this->data['items'] = $this->supplies->all();
 		$this->render();
 	}
+    // Handle an incoming GET ... 	returns a list of ports
+    function index_get()
+    {
+        $this->response($this->supplies->getPorts(), 200);
+    }
 
    function edit($id = null)
     {
@@ -73,11 +79,13 @@ class Receiving extends Application
        // $this->data['items'] = $this->supplies->get($id);
 
         // makeTextField (Label, database column name, record to insert)
-        $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
-        $this->data['fname'] = makeLabel('Name', 'name', $record->name);
-        $this->data['fonhand'] = makeLabel('On Hand amount', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Amount to Receive', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Cost', 'price', $record->price);
+
+        $this->data['fid'] = makeLaBel('Item Id', 'id', $record->id);
+        $this->data['fname'] = makeLabel('Item Name', 'name', $record->name);
+        $this->data['fonhand'] = makeLabel('On Hand amount, units (Kg)', 'qty_onhand', $record->qty_onhand);
+        $this->data['freceiving'] = makeTextField('Receiving amount, units(Kg)', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeTextField('Price (C$), per unit', 'price', $record->price);
+
 
         // show the editing form
         $this->data['pagebody'] = "receiving-edit_view";

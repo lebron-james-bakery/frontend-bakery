@@ -6,7 +6,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
-        <th>Qty</th>
+        <th>Units Available (Pieces)</th>
     </tr>
     {items}
     <tr>

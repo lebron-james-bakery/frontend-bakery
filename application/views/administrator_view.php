@@ -16,11 +16,11 @@
 
                 <table class = "table table-bordered">
                     <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>On-Hand Quantity</th>
-                        <th>Receiving Quantity</th>
-                        <th>Price</th>
+                        <th>Item Id</th>
+                        <th>Item Name</th>
+                        <th>On-Hand Quantity (Kg)</th>
+                        <th>Receiving Quantity (Kg)</th>
+                        <th>Price (C$)</th>
                     </tr>
                     {supplyItems}
                     <tr> <td><a class="btn btn-default" role="button" href="/Administrator/editSupplies/{id}">{id}</a></td>
@@ -58,7 +58,7 @@
                         <th>Item Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Units</th>
+                        <th>Units Available (Pieces)</th>
                         <th>Picture</th>
                     </tr>
                     {recipeItems}

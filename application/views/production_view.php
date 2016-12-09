@@ -3,7 +3,7 @@
     <div class="desc">
         <p>{desc}</p>
         <label>Price:&nbsp;</label>{price}<span> C$</span></br>
-        <label>Quantity:&nbsp;</label>{qty}<span></span>
+        <label>Units Available:&nbsp;</label>{qty}<span> Pieces</span>
     </div>
     <img class="scale-detail" src="/pix/{pic}">
     <table class="table ingredient">
