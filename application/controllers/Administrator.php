@@ -74,6 +74,7 @@ class Administrator extends Application
         $this->data['freceiving'] = makeTextField('Receiving amount, units (Kg)', 'qty_inventory', $record->qty_inventory);
         $this->data['fprice'] = makeTextField('Price (C$), per unit', 'price', $record->price);
 
+
         // show the editing form
         $this->data['pagebody'] = "administrator_supplies-edit_view";
         $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
