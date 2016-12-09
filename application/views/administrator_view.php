@@ -1,3 +1,7 @@
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Hey!</strong> You can minimize the tables by clicking on the headers.
+</div>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -12,11 +16,11 @@
 
                 <table class = "table table-bordered">
                     <tr>
-                        <th>Id</th>
+                        <th>Item Id</th>
                         <th>Item Name</th>
-                        <th>On-hand Quantity</th>
-                        <th>Cost Per Item</th>
-                        <th>Receiving Quantity</th>
+                        <th>On-Hand Quantity (Kg)</th>
+                        <th>Receiving Quantity (Kg)</th>
+                        <th>Price (C$)</th>
                     </tr>
                     {supplyItems}
                     <tr> <td><a class="btn btn-default" role="button" href="/Administrator/editSupplies/{id}">{id}</a></td>
@@ -54,7 +58,7 @@
                         <th>Item Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Units Available</th>
+                        <th>Units Available (Pieces)</th>
                         <th>Picture</th>
                     </tr>
                     {recipeItems}
