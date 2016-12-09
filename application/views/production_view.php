@@ -10,7 +10,7 @@
         <tr>
             <th>Name</th>
             <th>Quantity(g)</th>
-            <th>OnHand Quantity(kg)</th>
+            <th>OnHand Quantity(g)</th>
         </tr>
         {ingredient}
         <tr>
