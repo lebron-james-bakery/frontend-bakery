@@ -54,7 +54,7 @@
                         <th>Item Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Quantity</th>
+                        <th>Units Available</th>
                         <th>Picture</th>
                     </tr>
                     {recipeItems}
@@ -62,7 +62,7 @@
                         <td>{name}</td>
                         <td>{description}</td>
                         <td>{price}</td>
-                        <td>{qty}</td>
+                        <td>{unit}</td>
                         <td><img class="scale-detail" src="/pix/{picture}"></td>
                     </tr>
                     {/recipeItems}

@@ -81,6 +81,8 @@ class Administrator extends Application
         $this->render();
     }
 
+
+
     function cancel()
     {
         $this->session->unset_userdata('key');
@@ -121,7 +123,7 @@ class Administrator extends Application
 
         // save or not
         if (! empty($this->error_messages)) {
-            $this->edit();
+            $this->editSupplies();
             return;
         }
 
@@ -157,11 +159,11 @@ class Administrator extends Application
         $this->index();
     }
 
-    function addSupplies() {
+   /* function addSupplies() {
         $key = NULL;
         $record = $this->supplies->create();
         $this->session->set_userdata('key', $key);
         $this->session->set_userdata('record', $record);
-        $this->edit();
-    }
+        $this->editSupplies();
+    }*/
 }

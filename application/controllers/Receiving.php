@@ -10,6 +10,7 @@ class Receiving extends Application
         parent::__construct();
         $this->load->helper('formfields_helper');
         $this->error_messages = array();
+        $this->load->model('supplies');
     }
 
 	/**
@@ -41,6 +42,11 @@ class Receiving extends Application
 		$this->data['items'] = $this->supplies->all();
 		$this->render();
 	}
+    // Handle an incoming GET ... 	returns a list of ports
+    function index_get()
+    {
+        $this->response($this->supplies->getPorts(), 200);
+    }
 
    function edit($id = null)
     {
