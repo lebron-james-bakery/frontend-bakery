@@ -27,7 +27,25 @@ class Welcome extends Application
 		// this is the view we want shown
 		$this->data['pagebody'] = 'homepage_view';
 
-		// THIS IS AN EXAMPLE
+        // identify all of the order files
+        $this->load->helper('directory');
+        $candidates = directory_map('../data/');
+        $parms = array();
+        foreach ($candidates as $filename) {
+            if (substr($filename,0,5) == 'order') {
+                // restore that order object
+                $orders = new Orders ('../data/' . $filename);
+                // setup view parameters
+                $parms[] = array(
+                    'number' => $orders->number,
+                    'datetime' => $orders->datetime,
+                    'total' => $orders->total()
+                );
+            }
+        }
+        $this->data['Orders'] = $parms;
+
+        // this is an example
 		$source = $this->logs->all();
 		$items = array ();
 		foreach ($source as $record)
@@ -35,7 +53,8 @@ class Welcome extends Application
 			$items[] = array ('who' => $record['who'], 'pic' => $record['pic'], 'href' => $record['where'], 'what' => $record['what']);
 		}
 		$this->data['items'] = $items;
-        // END OF EXAMPLE
+        // end of example
+
 
         // build the list of recipes, to pass on to our homepage_view
         /*
@@ -87,6 +106,55 @@ class Welcome extends Application
         $this->data['total_supply_receiving'] = array_sum($total_supply_receiving);
         $this->data['total_supply_stocking'] = array_sum($total_supply_stocking);
 */
+        // Caculate total store money
+        $this->load->helper('file');
+        $totalMoney = file_get_contents('../data/money.txt');
+        $this->data['totalMoney'] = $totalMoney;
+
+        // Calculate total sales based on XML receipts
+        $this->load->helper('directory');
+        $candidates = directory_map('../data/');
+        $totalSales = 0;
+        foreach ($candidates as $filename) {
+            if (substr($filename,0,5) == 'order') {
+                // restore that order object
+                $orders = new Orders ('../data/' . $filename);
+                $totalSales += $orders->total();
+            }
+        }
+        $this->data['totalSales'] = $totalSales;
+
+        // Calculate total ingredients used up
+        $totalIngredientsConsumed = 0;
+        foreach ($candidates as $filename) {
+            if (substr($filename,0,5) == 'order') {
+                // restore that order object
+                $orders = new Orders ('../data/' . $filename);
+                $totalIngredientsConsumed += $orders->totalCostToProduce();
+            }
+        }
+        $this->data['totalIngredientsConsumed'] = $totalIngredientsConsumed;
+
+        // Caculate total spent on inventory
+        $totalReceiving = 0;
+        $buylogstxtfile = file_get_contents('../data/buy-logs.txt');
+        $this->data['transactionLogs'] = " ";
+
+        $rows = explode("\n", $buylogstxtfile);
+        foreach($rows as $row => $data)
+        {
+            $row_data = explode(' ', $data);
+            // Number of units * price
+            if ( ! isset($row_data[1])) {
+                $row_data[1] = 0;
+            }
+            if ( ! isset($row_data[6])) {
+                $row_data[6] = 0;
+            }
+            $totalReceiving += $row_data[6];
+            $this->data['transactionLogs'] .= nl2br($data . PHP_EOL);
+        }
+        $this->data['totalReceiving'] = $totalReceiving;
 
         $this->render();
 	}

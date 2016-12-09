@@ -34,7 +34,7 @@ class Supplies extends MY_Model {
         $config = [
             ['field'=>'id', 'label'=>'Menu code'],
             ['field'=>'name', 'label'=>'Item name','rules'=> 'required'],
-            ['field'=>'qty_onhand', 'label'=>'Item onhand','rules'=> 'required|decimal'],
+            ['field'=>'qty_onhand', 'label'=>'Item onhand','rules'=> 'decimal'],
             ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required|decimal'],
             ['field'=>'price', 'label'=>'Price'],
         ];

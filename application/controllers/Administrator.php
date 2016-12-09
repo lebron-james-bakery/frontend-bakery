@@ -70,9 +70,9 @@ class Administrator extends Application
 
         $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
         $this->data['fname'] = makeTextField('Name', 'name', $record->name);
-        $this->data['fonhand'] = makeLaBel('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Receiving amount, each', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Price, each', 'price', $record->price);
+        $this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
+        $this->data['freceiving'] = makeTextField('Receiving amount, per unit', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeTextField('Price, per unit', 'price', $record->price);
 
         // show the editing form
         $this->data['pagebody'] = "administrator_supplies-edit_view";
@@ -121,7 +121,7 @@ class Administrator extends Application
 
         // save or not
         if (! empty($this->error_messages)) {
-            $this->edit();
+            $this->editSupplies();
             return;
         }
 

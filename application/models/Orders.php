@@ -96,6 +96,7 @@ class Orders extends CI_Model {
             $lineitem->addChild('code',$key);
             $lineitem->addChild('qty',$value);
         }
+        $xml->addChild('total',$this->total());
 
         // save it
         $xml->asXML('../data/order' . $this->number . '.xml');
@@ -109,6 +110,16 @@ class Orders extends CI_Model {
             $total += $value * $menu->price;
         }
         return $total;
-    }  
+    }
+
+    public function totalCostToProduce()
+    {
+        $total = 0;
+        foreach($this->items as $key => $value) {
+            $menu = $this->recipes->get($key);
+            $total += $value * $menu->price * 0.8;
+        }
+        return $total;
+    }
 
 }
