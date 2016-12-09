@@ -39,6 +39,23 @@ class Orders extends CI_Model {
         }
     }
 
+    public function updateRecipes($which=null){
+        if ($which == null){
+            return;
+        }
+
+        $menu = $this->recipes->get($which);
+        $val = $menu->unit - 1;
+        $record = array(
+                   'id' => $menu->id,
+                   'name' => $menu->name,
+                   'description' => $menu->description,
+                   'price' => $menu->price,
+                   'unit' => $val
+                  );
+        $this->recipes->update($record);
+    }
+
     public function receipt($which=null) 
     {
         $total = 0;
@@ -96,6 +113,7 @@ class Orders extends CI_Model {
             $lineitem->addChild('code',$key);
             $lineitem->addChild('qty',$value);
         }
+        $xml->addChild('total',$this->total());
 
         // save it
         $xml->asXML('../data/order' . $this->number . '.xml');
@@ -109,6 +127,16 @@ class Orders extends CI_Model {
             $total += $value * $menu->price;
         }
         return $total;
-    }  
+    }
+
+    public function totalCostToProduce()
+    {
+        $total = 0;
+        foreach($this->items as $key => $value) {
+            $menu = $this->recipes->get($key);
+            $total += $value * $menu->price * 0.8;
+        }
+        return $total;
+    }
 
 }

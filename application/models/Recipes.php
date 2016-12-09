@@ -14,7 +14,7 @@ class Recipes extends MY_Model {
             ['field'=>'name', 'label'=>'Item name','rules'=> 'required'],
             ['field'=>'description', 'label'=>'Description'],
             ['field'=>'price', 'label'=>'Price'],
-            ['field'=>'qty', 'label'=>'Quantity in Stock', 'rules'=> 'required|decimal'],
+            ['field'=>'unit', 'label'=>'Quantity in Stock', 'rules'=> 'required|decimal'],
             ['field'=>'picture', 'label'=>'Picture']
         ];
         return $config;
@@ -26,9 +26,9 @@ class Recipes extends MY_Model {
             ['field'=>'name', 'label'=>'Item name','rules'=> 'required'],
             ['field'=>'description', 'label'=>'Description'],
             ['field'=>'price', 'label'=>'Price'],
-            ['field'=>'qty', 'label'=>'Quantity in Stock', 'rules'=> 'required|decimal'],
+            ['field'=>'unit', 'label'=>'Quantity in Stock', 'rules'=> 'required|decimal'],
             ['field'=>'picture', 'label'=>'Picture']
         ];
         return $config;
-    }	
+    }
 }

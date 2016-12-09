@@ -68,7 +68,7 @@ class Sales extends Application
         $this->data['content'] = '';
         $this->data['items'] = '';
         foreach($this->recipes->all() as $menuitem) {
-           $this->data['items'] .= $this->parser->parse('menuitem-shop',$menuitem,true);
+           $this->data['items'] .= $this->parser->parse('sales-order_view',$menuitem,true);
         }
         $this->render('sales_view'); 
 	}
@@ -77,6 +77,7 @@ class Sales extends Application
     {
         $orders = new Orders($this->session->userdata('orders'));
         $orders->additem($what);
+        $orders->updateRecipes($what);
         $this->keep_shopping();
         $this->session->set_userdata('orders',(array)$orders);
         redirect('/Sales');
@@ -101,7 +102,20 @@ class Sales extends Application
 
         $orders->save();
         $this->session->unset_userdata('orders');
+
+        // Calculate store's running total
+        $this->load->helper('file');
+        $currentTotal = file_get_contents('../data/money.txt');
+        $newRunningTotal = $orders->total() + $currentTotal;
+        if ( ! write_file('../data/money.txt', $newRunningTotal))
+        {
+            echo 'Unable to write the file';
+        }
+        // Todo: Need to update records
+        //$this->supplies->update($record);
+
         redirect('/Sales');
+
     }
 
     public function examine($which)
@@ -111,5 +125,4 @@ class Sales extends Application
         $this->data['content'] = $this->parsedown->parse($stuff);
         $this->render();
     }
-
 }
