@@ -68,12 +68,12 @@ class Administrator extends Application
         // build the form fields
         // $this->data['items'] = $this->supplies->get($id);
 
+
         $this->data['fid'] = makeLaBel('Item Id', 'id', $record->id);
         $this->data['fname'] = makeTextField('Item Name', 'name', $record->name);
-        $this->data['fonhand'] = makeTextField('On Hand amount, units (Kg)', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Receiving amount, units (Kg)', 'qty_inventory', $record->qty_inventory);
+        $this->data['fonhand'] = makeTextField('On Hand amount, units (g)', 'qty_onhand', $record->qty_onhand);
+        $this->data['freceiving'] = makeTextField('Receiving amount, units (g)', 'qty_inventory', $record->qty_inventory);
         $this->data['fprice'] = makeTextField('Price (C$), per unit', 'price', $record->price);
-
 
         // show the editing form
         $this->data['pagebody'] = "administrator_supplies-edit_view";

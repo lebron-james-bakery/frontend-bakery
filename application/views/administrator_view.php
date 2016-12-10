@@ -18,8 +18,8 @@
                     <tr>
                         <th>Item Id</th>
                         <th>Item Name</th>
-                        <th>On-Hand Quantity (Kg)</th>
-                        <th>Receiving Quantity (Kg)</th>
+                        <th>On-Hand Quantity (g)</th>
+                        <th>Receiving Quantity (g)</th>
                         <th>Price (C$)</th>
                     </tr>
                     {supplyItems}
@@ -62,7 +62,7 @@
                         <th>Picture</th>
                     </tr>
                     {recipeItems}
-                    <tr> <td><a class="btn btn-default" role="button" href="/Administrator/editRecipes/{id}">{id}</a></td>
+                    <tr> <td><a class="btn btn-default" role="button" href="/Production/edit/{id}">{id}</a></td>
                         <td>{name}</td>
                         <td>{description}</td>
                         <td>{price}</td>
