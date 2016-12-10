@@ -31,13 +31,6 @@ class Receiving extends Application
             return;
         }
 
-		// build the list of items, to pass on to our view
-		/*$source = $this->supplies->all();
-		$items = array ();
-		foreach ($source as $record)
-		{
-			$items[] = array ('name' => $record['name'], 'receiving' => $record['receiving'],  'href' => $record['where']);
-		}*/
         // this is the view we want shown
         $this->data['pagebody'] = 'receiving_view';
 		$this->data['items'] = $this->supplies->all();
@@ -127,8 +120,6 @@ class Receiving extends Application
         if ($key == null)
             if ($this->supplies->exists($record->id))
                 $this->error_messages[] = 'Duplicate id adding new menu item';
-       /* if (! $this->categories->exists($record->category))
-            $this->error_messages[] = 'Invalid category code: ' . $record->category;*/
 
         // save or not
        if (! empty($this->error_messages)) {
@@ -147,11 +138,9 @@ class Receiving extends Application
         file_put_contents('../data/buy-logs.txt', $string.PHP_EOL , FILE_APPEND | LOCK_EX);
         $this->load->helper('file');
         $currentTotal = file_get_contents('../data/money.txt');
-        $newRunningTotal =  $currentTotal - $record->price;
+        $newRunningTotal =  $currentTotal - ($record->price * $record->qty_inventory);
         if ( ! write_file('../data/money.txt', $newRunningTotal))
-        {
-            echo 'Unable to write the file';
-        }
+            $this->error_messages[] = 'Error writing to money.txt';
 
         // and redisplay the list
         $this->index();
