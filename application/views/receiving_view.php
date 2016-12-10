@@ -5,7 +5,8 @@
                 <th>Item Name</th>
                 <th>On-Hand Quantity (g)</th>
                 <th>Receiving Quantity (g)</th>
-                <th>Price (C$)</th>
+                <th>Price per Unit ($)</th>
+                <th>Action</th>
             </tr>
             {items}
             <tr> <td><a class="btn btn-default" role="button" href="/Receiving/edit/{id}">{id}</a></td>
@@ -13,6 +14,8 @@
                 <td>{qty_onhand}</td>
                 <td>{qty_inventory}</td>
                 <td>{price}</td>
+                <td><a class="btn btn-default" role="button" href="/Receiving/edit/{id}">Order</a>
+                    <a class="btn btn-default" role="button" href="/Receiving/prepare/{id}">Prepare</a></td>
             </tr>
             {/items}
         </table>
