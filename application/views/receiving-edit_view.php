@@ -1,4 +1,4 @@
-<h2>{action} Receiving </h2>
+<h2>Order Ingredients Form</h2>
 {error_messages}
 <form action="/Receiving/save" method="post" enctype="multipart/form-data">
     {fid}

@@ -111,9 +111,6 @@ class Sales extends Application
         {
             echo 'Unable to write the file';
         }
-        // Todo: Need to update records
-        //$this->supplies->update($record);
-
         redirect('/Sales');
 
     }

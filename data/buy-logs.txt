@@ -1,15 +1,8 @@
-Ordered 90.00 quantities of Flour for 45.0 $ per unit - 2016-12-08T20:54:53-08:00
+Ordered 20 grams of Flour at 1.00$ per unit for a total of $20 - 2016-12-10T15:40:17-08:00
 
-Ordered 370.00 quantities of Baking powder for 452.50 $ per unit - 2016-12-09T06:10:11+01:00
+Ordered 20 grams of Flour at 1.00$ per unit for a total of $20 - 2016-12-10T15:50:10-08:00
 
-Ordered 37.00 quantities of Baking powder for 452.50 $ per unit - 2016-12-09T06:10:30+01:00
+Ordered 40.00 grams of Flour at 1.00$ per unit for a total of $40 - 2016-12-10T15:50:21-08:00
 
-Ordered 37.00 quantities of Baking powder for 452.50 $ per unit - 2016-12-09T06:10:43+01:00
-
-Ordered 100.00 quantities of Flour for 7.6 $ per unit - 2016-12-08T21:43:18-08:00
-
-Ordered 100.00 quantities of Flour for 5.1 $ per unit - 2016-12-08T21:43:43-08:00
-
-Ordered 20.0 quantities of Flour for 10.10 $ per unit - 2016-12-08T21:59:21-08:00
-
+Ordered 10 grams of Flour at 1.00$ per unit for a total of $10 - 2016-12-10T15:50:29-08:00
 

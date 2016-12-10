@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Receiving extends Application
 {
+
     function __construct()
     {
         parent::__construct();
@@ -30,13 +31,6 @@ class Receiving extends Application
             return;
         }
 
-		// build the list of items, to pass on to our view
-		/*$source = $this->supplies->all();
-		$items = array ();
-		foreach ($source as $record)
-		{
-			$items[] = array ('name' => $record['name'], 'receiving' => $record['receiving'],  'href' => $record['where']);
-		}*/
         // this is the view we want shown
         $this->data['pagebody'] = 'receiving_view';
 		$this->data['items'] = $this->supplies->all();
@@ -59,13 +53,11 @@ class Receiving extends Application
         $key = $this->session->userdata('key');
         $record = $this->session->userdata('record');
 
-
         if(empty($record)){
             $record = $this->supplies->get($id);
             $key = $id;
             $this->session->set_userdata('key',$id);
             $this->session->set_userdata('record',$record);
-
         }
 
         //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
@@ -74,13 +66,14 @@ class Receiving extends Application
        // $this->data['items'] = $this->supplies->get($id);
 
         // makeTextField (Label, database column name, record to insert)
-
+        $originalAmount = 0;
+        $originalAmount = $record->qty_inventory;
+        $this->session->set_userdata('originalAmount',$originalAmount);
         $this->data['fid'] = makeLaBel('Item Id', 'id', $record->id);
         $this->data['fname'] = makeLabel('Item Name', 'name', $record->name);
         $this->data['fonhand'] = makeLabel('On Hand amount, units (g)', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Receiving amount, units(g)', 'qty_inventory', $record->qty_inventory);
+        $this->data['freceiving'] = makeTextField('Amount to Order, units (g)', 'qty_inventory', $record->qty_inventory);
         $this->data['fprice'] = makeTextField('Price (C$), per unit', 'price', $record->price);
-
 
         // show the editing form
         $this->data['pagebody'] = "receiving-edit_view";
@@ -93,7 +86,7 @@ class Receiving extends Application
         $this->session->unset_userdata('key');
         $this->session->unset_userdata('record');
         $this->index();
-        redirect('/receiving');
+        redirect('/Receiving');
     }
     function save() {
         // try the session first
@@ -104,12 +97,19 @@ class Receiving extends Application
             $this->index();
             return;
         }
-
         // update our data transfer object
         $incoming = $this->input->post();
+        $orderedAmount = 0;
         foreach(get_object_vars($record) as $key=> $value)
-            if (isset($incoming[$key]))
+            if (isset($incoming[$key])) {
+                if(strcmp($key,'qty_inventory') == 0) {
+                    $originalAmount = $this->session->userdata('originalAmount');
+                    $orderedAmount = $incoming[$key];
+                    $incoming[$key] = $originalAmount + $orderedAmount;
+                }
                 $record->$key = $incoming[$key];
+                $this->session->unset_userdata('originalAmount');
+            }
         $this->session->set_userdata('record',$record);
 
         // validate
@@ -122,8 +122,6 @@ class Receiving extends Application
         if ($key == null)
             if ($this->supplies->exists($record->id))
                 $this->error_messages[] = 'Duplicate id adding new menu item';
-       /* if (! $this->categories->exists($record->category))
-            $this->error_messages[] = 'Invalid category code: ' . $record->category;*/
 
         // save or not
        if (! empty($this->error_messages)) {
@@ -132,21 +130,35 @@ class Receiving extends Application
         }
 
         // update our table, finally!
-        if ($key == null)
+        if ($key == null) {
             $this->supplies->add($record);
-        else
+        }
+        else {
             $this->supplies->update($record);
+        }
 
         // log transactions
-        $string = "Ordered " . $record->qty_inventory . " quantities of " . $record->name . " for " . $record->price . " $ per unit - " . date(DATE_ATOM) . PHP_EOL;
+        $string = "Ordered " . $orderedAmount . " grams of " . $record->name . " at " . $record->price . "$ per unit for a total of $" . ($record->price * $orderedAmount) . " - " . date(DATE_ATOM) . PHP_EOL;
         file_put_contents('../data/buy-logs.txt', $string.PHP_EOL , FILE_APPEND | LOCK_EX);
         $this->load->helper('file');
         $currentTotal = file_get_contents('../data/money.txt');
-        $newRunningTotal =  $currentTotal - $record->price;
+        $newRunningTotal =  $currentTotal - ($record->price * $orderedAmount);
         if ( ! write_file('../data/money.txt', $newRunningTotal))
-        {
-            echo 'Unable to write the file';
-        }
+            $this->error_messages[] = 'Error writing to money.txt';
+
+        // and redisplay the list
+        $this->index();
+    }
+
+    /*
+     * Converts all the receiving inventory into on-hand inventory of a particular ingredient
+     */
+    function prepare($id)
+    {
+        $record = $this->supplies->get($id);
+        $record->qty_onhand += $record->qty_inventory;
+        $record->qty_inventory = 0;
+        $this->supplies->update($record);
 
         // and redisplay the list
         $this->index();
