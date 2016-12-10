@@ -191,12 +191,22 @@ class Production extends Application
 
 	function cook($id) {
 		$recipe = $this->recipes->get($id);
+		$ingredient = $this->recipe_supply->group($id);
+		$supplies = array();
+		foreach($ingredient as $item){
+			$supply = $this->supplies->get($item->supply_id);
+			$qty_ing = $item->amount;
+			$supply->qty_onhand = $supply->qty_onhand - $qty_ing/1000;
+			$supplies[] = $supply;
+		}
+
 		$recipe->unit = $recipe->unit + 1;
 		$this->recipes->update($recipe);
-
-		$recipe->supply_id;
-
-		print_r($recipe);
+		foreach($supplies as $item){
+			$this->supplies->update($item);
+			print_r($item);
+		}
+		$this->index();
 	}
 	function cancel()
     {
