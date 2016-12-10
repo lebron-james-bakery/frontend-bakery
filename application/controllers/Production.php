@@ -206,6 +206,9 @@ class Production extends Application
 			$this->supplies->update($item);
 			print_r($item);
 		}
+		$this->session->unset_userdata('recipe');
+		$this->session->unset_userdata('$ingredient');
+		
 		$this->index();
 	}
 	function cancel()
