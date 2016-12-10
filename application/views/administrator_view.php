@@ -18,8 +18,8 @@
                     <tr>
                         <th>Item Id</th>
                         <th>Item Name</th>
-                        <th>On-Hand Quantity (Kg)</th>
-                        <th>Receiving Quantity (Kg)</th>
+                        <th>On-Hand Quantity (g)</th>
+                        <th>Receiving Quantity (g)</th>
                         <th>Price (C$)</th>
                     </tr>
                     {supplyItems}
