@@ -9,6 +9,7 @@ Team members:
 ## [2.0.0] - 2016-12-11
 ### Changed 2016-12-10
 - Receiving page forms properly adding up to inventory quantity @gerardng
+- Added prepare function to convert receiving inventory into on-hand quantity @gerardng
 
 ### Changed 2016-12-09
 - fixed Receiving page properly connecting to Supplies table in backend DB @gerardng

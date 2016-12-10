@@ -1,3 +1,8 @@
+<div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Prepare</strong> allows the staff to convert receiving inventory into on-hand quantity.
+    <strong>Order</strong> displays a form for staff to order new materials. These transactions will be logged and deducted from the bakery's funds.
+</div>
 <h1>Receiving list</h1>
 <table class = "table table-bordered">
             <tr>
