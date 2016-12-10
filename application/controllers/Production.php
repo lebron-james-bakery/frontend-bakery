@@ -204,11 +204,11 @@ class Production extends Application
 		$this->recipes->update($recipe);
 		foreach($supplies as $item){
 			$this->supplies->update($item);
-			print_r($item);
+			//print_r($item);
 		}
 		$this->session->unset_userdata('recipe');
 		$this->session->unset_userdata('$ingredient');
-		
+
 		$this->index();
 	}
 	function cancel()
