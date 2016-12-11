@@ -16,7 +16,7 @@
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer1" data-from="0" data-to="{totalMoney}"></span>
                             </div>
-                            <div>Bakery Funds ($)</div>
+                            <div>Bakery Funds (cent)</div>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer2" data-from="0" data-to="{totalSales}"></span>
                             </div>
-                            <div>Total Sales ($)</div>
+                            <div>Total Sales (cent)</div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer3" data-from="0" data-to="{totalIngredientsConsumed}"></span>
                             </div>
-                            <div>Ingredients Consumed ($)</div>
+                            <div>Ingredients Consumed (cent)</div>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer4" data-from="0" data-to="{totalReceiving}"></span>
                             </div>
-                            <div>Spent on Supplies ($)</div>
+                            <div>Spent on Supplies (cent)</div>
                         </div>
                     </div>
                 </div>
