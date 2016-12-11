@@ -1,10 +1,20 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Production controller is used for support 1. the product feature
+ * in production page, 2. the product manage feature in Administrator
+ * page.
+ * Maps to the following url
+ * 		http://example.com/production
+ *
+ * @author @AlexandyZ
+ */
 class Production extends Application
 {
-
+	/**
+	 * Constructor
+	 */
 	function __construct()
 	{
 		parent::__construct();
@@ -14,10 +24,7 @@ class Production extends Application
     }
 
 	/**
-	 * Controller useed for Production page
-	 *
-	 * Maps to the following url
-	 * 		http://example.com/production
+	 * Display all recipes in the production page
 	 */
 	public function index()
 	{
@@ -49,6 +56,11 @@ class Production extends Application
 		$this->render();
 	}
 
+	/**
+	 * Get all ingredients of the chosen recipe in the production page
+	 * and include a "Cook One" button.
+	 *     @param type $id: the id of chosen recipe
+	 */
 	function get($id){
 		// this is the view we want shown
 		$this->data['pagebody'] = 'production_view';
@@ -67,14 +79,19 @@ class Production extends Application
 		foreach ($ingredient as $record)
 		{
 			$item[] = array ('ing_name' => $this->supplies->get($record->supply_id)->name, 
-							  'ing_qty' => $record->amount,
-							  'ing_onhand' => $this->supplies->get($record->supply_id)->qty_onhand);
+							 'ing_qty' => $record->amount,
+							 'ing_onhand' => $this->supplies->get($record->supply_id)->qty_onhand);
 		}
 		$this->data['ingredient'] = $item;
 		$this->data['zcook'] = makeSubmitButton('Cook One', 'Make a new item');
 		$this->render();
 	}
 
+	/**
+	 * Get all ingredients of the chosen recipe in the Administrator page
+	 * and set as edit textbox
+	 *     @param type $id: the id of chosen recipe
+	 */
 	function edit($id=null){
 		// try the session first
 		$recipe = $this->session->userdata('recipe');
@@ -85,7 +102,7 @@ class Production extends Application
 			$this->session->set_userdata('recipe',$recipe);
 		}
 		if (empty($ingredient)) {
-			$ingredient = $this->recipe_supply->get($id, null);
+			$ingredient = $this->recipe_supply->group($id, null);
 			$this->session->set_userdata('ingredient',$ingredient);
 		}
 
@@ -115,7 +132,9 @@ class Production extends Application
         $this->render();
 	}
 
-	// handle uploaded image, and use its name as the picture name 
+	/**  
+	 * Handle uploaded image, and use its name as the picture name
+	 */
 	function replace_picture() {    
 		$config = [        
 			'upload_path' => './public/pix', // relative to front controller        
@@ -136,11 +155,14 @@ class Production extends Application
 		    return $this->upload->data('file_name');
 	}
 
-	// Save update into database
-	function save() {        
+	/**
+	 * Save update into database
+	 */
+	function save() {
+
+		$incoming = $this->input->post();
 
 		// check the session first
-		$incoming = $this->input->post();
 		$recipe = $this->session->userdata('recipe');
 		$ingredient = $this->session->userdata('ingredient');
 
@@ -154,11 +176,14 @@ class Production extends Application
 			echo "null";
 		else{
 			print_r($record);
-		}*/		
+		}*/
+
+		// compare session with input data and updata session	
 		foreach(get_object_vars($recipe) as $index => $value){
 			if (isset($incoming[$index]))
 				$recipe->$index = $incoming[$index];
 		}
+
 		$newguy = $_FILES['changepic'];
 		if (!empty($newguy['name'])) {
 			$record->picture = $this->replace_picture ();
@@ -177,22 +202,39 @@ class Production extends Application
 		$this->session->set_userdata('ingredient',$ingredient);
 		//print_r($ingredient);
 		
-
-		//update our table, finally!
+		// update our table, finally!
 	    $this->recipes->update($recipe);
 		foreach($ingredient as $item){
 			//print_r($item);
 			$this->recipe_supply->update($item); 
 		}
+
+		// clear sessions
 		$this->session->unset_userdata('recipe');
 		$this->session->unset_userdata('$ingredient');
 		// and redisplay the list
 		$this->index();
 	}
 
+	/**
+	 * Cook one cake and update database
+	 *     @param type $id: the id of chosen recipe
+	 */
 	function cook($id) {
-		$recipe = $this->recipes->get($id);
-		$ingredient = $this->recipe_supply->group($id);
+
+		// check sessions
+		$recipe = $this->session->userdata('recipe');
+		$ingredient = $this->session->userdata('ingredient');
+		// if not there, get them from the database
+		if (empty($recipe)) {
+			$recipe = $this->recipes->get($id);
+			$this->session->set_userdata('recipe',$recipe);
+		}
+		if (empty($ingredient)) {
+			$ingredient = $this->recipe_supply->group($id, null);
+			$this->session->set_userdata('ingredient',$ingredient);
+		}
+
 		$supplies = array();
 		foreach($ingredient as $item){
 			$supply = $this->supplies->get($item->supply_id);
@@ -201,20 +243,26 @@ class Production extends Application
 			$supplies[] = $supply;
 		}
 
+		// update the recipe unit by 1
 		$recipe->unit = $recipe->unit + 1;
 		$this->recipes->update($recipe);
 		foreach($supplies as $item){
 			$this->supplies->update($item);
 			//print_r($item);
 		}
+
+		// clear sessions
 		$this->session->unset_userdata('recipe');
 		$this->session->unset_userdata('ingredient');
 
 		$this->index();
 	}
-
+	/**
+	 * Cancel function
+	 */
 	function cancel()
-    {
+    {	
+		// clear sessions and redirect
         $this->session->unset_userdata('$recipe');
         $this->session->unset_userdata('$ingredient');
         $this->index();
