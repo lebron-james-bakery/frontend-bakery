@@ -76,8 +76,8 @@ class Sales extends Application
     public function add($what) 
     {
         $orders = new Orders($this->session->userdata('orders'));
-        $orders->additem($what);
-        $orders->updateRecipes($what);
+        $orders->additem($what); 
+        $orders->updateRecipes($what);     
         $this->keep_shopping();
         $this->session->set_userdata('orders',(array)$orders);
         redirect('/Sales');
@@ -93,13 +93,13 @@ class Sales extends Application
         $this->index();
     }
 
-    public function checkout() 
+    public function checkout($what) 
     {
         $orders = new Orders($this->session->userdata('orders'));
+        
         // ignore invalid requests
         /*if (! $orders->validate())
             redirect('/Sales');*/
-
         $orders->save();
         $this->session->unset_userdata('orders');
 
@@ -119,7 +119,7 @@ class Sales extends Application
     }
 
     public function examine($which)
-     {
+    {
         $orders = new Orders ('../data/order' . $which . '.xml');
         $stuff = $orders->receipt($which);
         $this->data['content'] = $this->parsedown->parse($stuff);
