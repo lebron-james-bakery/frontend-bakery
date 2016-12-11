@@ -8,6 +8,7 @@ class Sales extends Application
     function __construct()
     {
         parent::__construct();
+        $this->data['pagetitle'] = 'Sales';
     }
 
     /**
