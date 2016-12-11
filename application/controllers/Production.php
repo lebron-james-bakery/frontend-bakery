@@ -10,7 +10,8 @@ class Production extends Application
 		parent::__construct();
 		$this->load->helper('formfields_helper');
 		$this->error_messages = array();
-	}
+        $this->data['pagetitle'] = 'Production';
+    }
 
 	/**
 	 * Controller useed for Production page
