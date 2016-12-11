@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kwanc
- * Date: 2016-12-04
- * Time: 7:02 PM
- */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// Menu Model + Crud Controller
+/**
+ * Admin controller with CRUD functions to interact with both frontend and backend database through REST calls
+ */
 class Administrator extends Application
 {
     function __construct()
@@ -19,10 +15,7 @@ class Administrator extends Application
     }
 
     /**
-     * Receiving Page for this controller.
-     *
-     * Maps to the following URL
-     * http://example.com/welcome/receiving
+     * Renders the admin page view and the models
      */
     public function index()
     {
@@ -43,7 +36,9 @@ class Administrator extends Application
     }
 
     /**
-     * Edit supplies based on $id
+     * Edit a supply
+     * When code is null, a new supply is being added
+     * @param $id Supply id to edit
      */
     function editSupplies($id = null)
     {
@@ -75,14 +70,20 @@ class Administrator extends Application
         $this->show_any_errors();
         $this->render();
     }
-    //this is called when cancel button is click, cancel the transection on editing form
+
+    /**
+     * Called when cancel button is click, cancel the transection on editing form
+     */
     function cancel()
     {
         $this->session->unset_userdata('key');
         $this->session->unset_userdata('record');
         $this->index();
     }
-    //this is called when sabe button is click, save contents on editing form to database
+
+    /**
+     * Called when save button is click, save contents on editing form to database
+     */
     function saveSupplies()
     {
         // try the session first
@@ -128,7 +129,10 @@ class Administrator extends Application
         // and redisplay the list
         $this->index();
     }
-    //show error of fields form
+
+    /**
+     * Shows any errors as alert boxes if any are accumulated
+     */
     function show_any_errors() {
         $result = '';
         if (empty($this->error_messages)) {
@@ -142,7 +146,10 @@ class Administrator extends Application
         $this->data['error_messages'] = $this->parser->parse('mtce-errors',
             ['error_messages' => $result], true);
     }
-    //this is called when delete button is click, delete items from database
+
+    /**
+     * Deletes a row from the database
+     */
     function delete() {
         $key = $this->session->userdata('key');
         $record = $this->session->userdata('record');

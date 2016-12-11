@@ -2,7 +2,6 @@
 
 /**
  * Supplies model with CRUD functions to interact with a backend database through REST calls
- * @author Gerard
  */
 define('REST_SERVER', 'http://backend.local');      // the REST server host
 define('REST_PORT', $_SERVER['SERVER_PORT']);       // the port you are running the server on
