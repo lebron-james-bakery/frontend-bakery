@@ -84,7 +84,7 @@ class Production extends Application
 			$this->session->set_userdata('recipe',$recipe);
 		}
 		if (empty($ingredient)) {
-			$ingredient = $this->recipe_supply->get($id, NULL);
+			$ingredient = $this->recipe_supply->get($id, null);
 			$this->session->set_userdata('ingredient',$ingredient);
 		}
 
@@ -207,7 +207,7 @@ class Production extends Application
 			//print_r($item);
 		}
 		$this->session->unset_userdata('recipe');
-		$this->session->unset_userdata('$ingredient');
+		$this->session->unset_userdata('ingredient');
 
 		$this->index();
 	}
