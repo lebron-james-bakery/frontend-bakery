@@ -16,4 +16,5 @@
         {/ingredient}
     </table>
     <a class="btn btn-primary" role="button" href="/Production/cook/{id}">Cook One</a>
+    <a class="btn btn-default" role="button" href="/Production/cancel">Cancel</a>
 </div>
