@@ -16,7 +16,7 @@
                         <div class="col-xs-9 text-right">
                             <div class="huge"><span class="timer1" data-from="0" data-to="{totalMoney}"></span>
                             </div>
-                            <div>Store Money ($)</div>
+                            <div>Bakery Funds ($)</div>
                         </div>
                     </div>
                 </div>

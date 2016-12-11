@@ -196,7 +196,7 @@ class Production extends Application
 		foreach($ingredient as $item){
 			$supply = $this->supplies->get($item->supply_id);
 			$qty_ing = $item->amount;
-			$supply->qty_onhand = $supply->qty_onhand - $qty_ing/1000;
+			$supply->qty_onhand = $supply->qty_onhand - $qty_ing;
 			$supplies[] = $supply;
 		}
 
@@ -211,6 +211,7 @@ class Production extends Application
 
 		$this->index();
 	}
+
 	function cancel()
     {
         $this->session->unset_userdata('$recipe');
