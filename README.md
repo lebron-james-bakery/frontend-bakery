@@ -14,4 +14,4 @@ Gerard Ng
 
 Simon Zwick
 
-![Screenshot]\(http://i.imgur.com/9g3tB6z.png) 
+![Screenshot]\(http://imgur.com/9g3tB6z.png) 
