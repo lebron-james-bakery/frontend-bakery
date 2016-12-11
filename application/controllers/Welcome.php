@@ -15,6 +15,7 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
+        $this->data['pagetitle'] = 'Home';
         // Handle user-role to lock out certain types of users
         $userrole = $this->session->userdata('userrole');
         if ($userrole == 'guest') {

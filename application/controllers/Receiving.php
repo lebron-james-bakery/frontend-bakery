@@ -12,6 +12,7 @@ class Receiving extends Application
         parent::__construct();
         $this->load->helper('formfields_helper');
         $this->error_messages = array();
+        $this->data['pagetitle'] = 'Receiving';
     }
 
 	/**

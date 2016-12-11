@@ -10,7 +10,8 @@ class Production extends Application
 		parent::__construct();
 		$this->load->helper('formfields_helper');
 		$this->error_messages = array();
-	}
+        $this->data['pagetitle'] = 'Production';
+    }
 
 	/**
 	 * Controller useed for Production page
@@ -84,7 +85,7 @@ class Production extends Application
 			$this->session->set_userdata('recipe',$recipe);
 		}
 		if (empty($ingredient)) {
-			$ingredient = $this->recipe_supply->get($id, NULL);
+			$ingredient = $this->recipe_supply->get($id, null);
 			$this->session->set_userdata('ingredient',$ingredient);
 		}
 
@@ -207,7 +208,7 @@ class Production extends Application
 			//print_r($item);
 		}
 		$this->session->unset_userdata('recipe');
-		$this->session->unset_userdata('$ingredient');
+		$this->session->unset_userdata('ingredient');
 
 		$this->index();
 	}
