@@ -124,6 +124,8 @@ class Administrator extends Application
             $this->supplies->add($record);
         else
             $this->supplies->update($record);
+        $this->session->unset_userdata('key');
+   		$this->session->unset_userdata('record');
         // and redisplay the list
         $this->index();
     }
