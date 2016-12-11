@@ -1,13 +1,21 @@
 <?php
-
+/**
+ * Recipe_supply model supports the production controllor 
+ *
+ */
 class Recipe_supply extends MY_Model2 {
 
-	// Constructor
+	/** 
+     * Constructor: set table, key1, key2 used for this model 
+     */
 	public function __construct()
 	{
 		parent::__construct('Recipe_supply', 'recipe_id', 'supply_id');
 	}
 
+    /**
+     * Set rules used for form validation
+     */
     function rules() {
         $config = [
             ['field'=>'id', 'label'=>'Menu code'],
@@ -20,6 +28,10 @@ class Recipe_supply extends MY_Model2 {
         return $config;
     }
 
+    /**
+     * Update function
+     *     @param type $record
+     */
     function update($record){
         $this->db->set('amount', $record->amount);
 		$this->db->where('recipe_id', $record->recipe_id);
