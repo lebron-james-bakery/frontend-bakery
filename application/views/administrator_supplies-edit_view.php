@@ -8,4 +8,5 @@
     {fprice}
     {zsubmit}
     <a class="btn btn-default" role="button" href="/Administrator/cancel">Cancel</a>
+
 </form>

@@ -1,16 +1,11 @@
 <div class="content">
     <h2>{name}</h2>
-    <div class="desc">
-        <p>{desc}</p>
-        <label>Price:&nbsp;</label>{price}<span> C$</span></br>
-        <label>Quantity:&nbsp;</label>{qty}<span></span>
-    </div>
-    <img class="scale-detail" src="/pix/{pic}">
+    <label class="ingredient">Quantity:&nbsp;</label>{qty}<span></span>
     <table class="table ingredient">
         <tr>
             <th>Name</th>
             <th>Quantity(g)</th>
-            <th>OnHand Quantity(kg)</th>
+            <th>OnHand Quantity(g)</th>
         </tr>
         {ingredient}
         <tr>
@@ -20,4 +15,5 @@
         </tr>
         {/ingredient}
     </table>
+    <a class="btn btn-primary" role="button" href="/Production/cook/{id}">Cook One</a>
 </div>

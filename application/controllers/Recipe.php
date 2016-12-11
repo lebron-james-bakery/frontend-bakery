@@ -8,7 +8,8 @@ class Recipe extends Application
 	function __construct()
 	{
 		parent::__construct();
-	}
+        $this->data['pagetitle'] = 'Recipes';
+    }
 
 	/**
 	 * Homepage for our app

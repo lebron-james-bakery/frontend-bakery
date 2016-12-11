@@ -15,6 +15,7 @@ class Administrator extends Application
         parent::__construct();
         $this->load->helper('formfields_helper');
         $this->error_messages = array();
+        $this->data['pagetitle'] = 'Administrator';
     }
 
     /**
@@ -34,14 +35,6 @@ class Administrator extends Application
             return;
         }
 
-
-        // build the list of items, to pass on to our view
-        /*$source = $this->supplies->all();
-        $items = array ();
-        foreach ($source as $record)
-        {
-            $items[] = array ('name' => $record['name'], 'receiving' => $record['receiving'],  'href' => $record['where']);
-        }*/
         // this is the view we want shown
         $this->data['pagebody'] = 'administrator_view';
         $this->data['supplyItems'] = $this->supplies->all();
@@ -49,6 +42,9 @@ class Administrator extends Application
         $this->render();
     }
 
+    /**
+     * Edit supplies based on $id
+     */
     function editSupplies($id = null)
     {
         // try the session first
@@ -60,19 +56,15 @@ class Administrator extends Application
             $key = $id;
             $this->session->set_userdata('key',$id);
             $this->session->set_userdata('record',$record);
-
         }
 
-        //$this->data['content'] = "Looking at " . $key . ': ' . $record->name;
         $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
         // build the form fields
-        // $this->data['items'] = $this->supplies->get($id);
-
-        $this->data['fid'] = makeLaBel('Id', 'id', $record->id);
-        $this->data['fname'] = makeTextField('Name', 'name', $record->name);
-        $this->data['fonhand'] = makeTextField('On Hand amount, each', 'qty_onhand', $record->qty_onhand);
-        $this->data['freceiving'] = makeTextField('Receiving amount, per unit', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Price, per unit', 'price', $record->price);
+        $this->data['fid'] = makeLaBel('Item Id', 'id', $record->id);
+        $this->data['fname'] = makeTextField('Item Name', 'name', $record->name);
+        $this->data['fonhand'] = makeTextField('On Hand amount, units (g)', 'qty_onhand', $record->qty_onhand);
+        $this->data['freceiving'] = makeTextField('Receiving amount, units (g)', 'qty_inventory', $record->qty_inventory);
+        $this->data['fprice'] = makeTextField('Price ($), per unit', 'price', $record->price);
 
         // show the editing form
         $this->data['pagebody'] = "administrator_supplies-edit_view";
@@ -80,6 +72,8 @@ class Administrator extends Application
         $this->show_any_errors();
         $this->render();
     }
+
+
 
     function cancel()
     {
@@ -130,6 +124,8 @@ class Administrator extends Application
             $this->supplies->add($record);
         else
             $this->supplies->update($record);
+        $this->session->unset_userdata('key');
+   		$this->session->unset_userdata('record');
         // and redisplay the list
         $this->index();
     }
@@ -155,13 +151,5 @@ class Administrator extends Application
             $this->supplies->delete($key);
         }
         $this->index();
-    }
-
-    function addSupplies() {
-        $key = NULL;
-        $record = $this->supplies->create();
-        $this->session->set_userdata('key', $key);
-        $this->session->set_userdata('record', $record);
-        $this->edit();
     }
 }

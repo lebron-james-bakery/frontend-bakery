@@ -1,6 +1,14 @@
 <?php
 
-//defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * Sales page allows any user to order products from the store. 
+ * The users can check the orders they already ordered, and check details as well.
+ * When start a new order, the page will show all the products that are selling in 
+ * the store, and users can order any products that are avaliable in the stock.
+ * When cancel the order, return the orders page.
+ **/
 
 class Sales extends Application
 {
@@ -8,6 +16,7 @@ class Sales extends Application
     function __construct()
     {
         parent::__construct();
+        $this->data['pagetitle'] = 'Sales';
     }
 
     /**
@@ -18,12 +27,6 @@ class Sales extends Application
         if ($this->session->has_userdata('orders'))
             $this->keep_shopping();
         else $this->summarize();
-
-        /*$stuff = file_get_contents('../data/receipt.md');
-        $this->data['order'] = $this->parsedown->parse($stuff);
-        $this->data['pagebody'] = 'sales_view';
-		$this->data['items'] = $this->recipes->all();
-		$this->render('template');*/
     }
 
     public function summarize() 
@@ -111,9 +114,6 @@ class Sales extends Application
         {
             echo 'Unable to write the file';
         }
-        // Todo: Need to update records
-        //$this->supplies->update($record);
-
         redirect('/Sales');
 
     }
