@@ -74,7 +74,7 @@ class Receiving extends Application
         $this->data['fname'] = makeLabel('Item Name', 'name', $record->name);
         $this->data['fonhand'] = makeLabel('On Hand amount, units (g)', 'qty_onhand', $record->qty_onhand);
         $this->data['freceiving'] = makeTextField('Amount to Order, units (g)', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Price (C$), per unit', 'price', $record->price);
+        $this->data['fprice'] = makeTextField('Price (cent), per unit', 'price', $record->price);
 
         // show the editing form
         $this->data['pagebody'] = "receiving-edit_view";

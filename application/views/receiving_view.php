@@ -10,7 +10,7 @@
                 <th>Item Name</th>
                 <th>On-Hand Quantity (g)</th>
                 <th>Receiving Quantity (g)</th>
-                <th>Price per Unit ($)</th>
+                <th>Price per Unit (cent)</th>
                 <th>Action</th>
             </tr>
             {items}
