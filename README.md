@@ -1,21 +1,17 @@
-## starter-quotes
+## Lebron James Bakery
 
-This project is the starting repository for COMP4711 (fall 2016) lab #4.
+This is a comp4711 term project
 
-This starter builds on [CodeIgniter3.1-starter2](https://github.com/jedi-academy/CodeIgniter3.1-starter2),
-adding a Quotes model and tailoring the homepage view to suit this.
+Members:
 
-**controllers/Welcome.php** has been modified to provide a table of quotations,
-and the view template has been modified to use Bootstrap.
+Yifang Zhang
 
-The **application/config/autoload.php** configuration has been modified
-to preload the template parser library, the url helper, and the Quotes model.
+Ciu Liu
 
-The **application/config/config.php** configuration has been modified
-to specify menu navbar choices.
+Kwanchanok Sonsoi
 
-The **application/views** folder holds the master template, as well as some relevant view
-fragments.
+Gerard Ng
 
-Configure your web server or virtual host so that your project's
-document root maps to this **public** folder inside your project.
+Simon Zwick
+
+![Screenshot](http://imgur.com/9g3tB6z.png) 

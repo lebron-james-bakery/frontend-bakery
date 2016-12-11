@@ -7,7 +7,7 @@
  *
  * @author Gerard
  */
-define('REST_SERVER', 'http://backend.local');      // the REST server host
+define('REST_SERVER', 'http://backend-bakery.local');      // the REST server host
 define('REST_PORT', $_SERVER['SERVER_PORT']);       // the port you are running the server on
 
 class Supplies extends MY_Model {
@@ -36,7 +36,7 @@ class Supplies extends MY_Model {
             ['field'=>'id', 'label'=>'Menu code'],
             ['field'=>'name', 'label'=>'Item name'],
             ['field'=>'qty_onhand', 'label'=>'Item onhand'],
-            ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required|decimal'],
+            ['field'=>'qty_inventory', 'label'=>'Item stock', 'rules'=> 'required'],
             ['field'=>'price', 'label'=>'Price'],
         ];
         return $config;
@@ -99,7 +99,7 @@ class Supplies extends MY_Model {
         $this->rest->option(CURLOPT_PORT, REST_PORT);
 
         $retrieved = $this->rest->put('/maintenance/item/id/' . $record->id, json_encode($record));
-        //var_dump($retrieved); die;
+        var_dump($retrieved);
     }
 
     // Add a record to the DB

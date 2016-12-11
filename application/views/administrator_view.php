@@ -2,6 +2,10 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong>Hey!</strong> You can minimize the tables by clicking on the headers.
 </div>
+<div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    To prevent system overload, any price adjustments are rounded down to the nearest integer.
+</div>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -20,7 +24,7 @@
                         <th>Item Name</th>
                         <th>On-Hand Quantity (g)</th>
                         <th>Receiving Quantity (g)</th>
-                        <th>Price (C$)</th>
+                        <th>Price per Unit ($)</th>
                     </tr>
                     {supplyItems}
                     <tr> <td><a class="btn btn-default" role="button" href="/Administrator/editSupplies/{id}">{id}</a></td>
@@ -62,7 +66,7 @@
                         <th>Picture</th>
                     </tr>
                     {recipeItems}
-                    <tr> <td><a class="btn btn-default" role="button" href="/Administrator/editRecipes/{id}">{id}</a></td>
+                    <tr> <td><a class="btn btn-default" role="button" href="/Production/edit/{id}">{id}</a></td>
                         <td>{name}</td>
                         <td>{description}</td>
                         <td>{price}</td>
