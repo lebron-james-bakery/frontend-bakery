@@ -186,6 +186,26 @@ class Administrator extends Application
         $this->index();
     }
 
+
+    //add new items to database
+    function addNewItem() {
+        // Handle user-role to lock out certain types of users
+        $userrole = $this->session->userdata('userrole');
+        if ($userrole == 'guest') {
+            $message = 'You are not authorized to access this page. Go away';
+            $this->data['content'] = $message;
+            $this->render();
+            return;
+        }
+
+        $key = NULL;
+        //create a new item
+        $record = $this->supplies->create();
+        $this->session->set_userdata('key', $key);
+        $this->session->set_userdata('record', $record);
+        $this->editSupplies();
+    }
+
     /**
      * Shows any errors as alert boxes if any are accumulated
      */

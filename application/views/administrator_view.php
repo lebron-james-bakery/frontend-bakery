@@ -17,7 +17,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                <a class="btn btn-success" role="button" href="/Administrator/newSupplies">Add New Supply</a>
+                <a class="btn btn-success" role="button" href="/Administrator/addNewItem">Add New Supply</a>
                 <br><br>
                 <table class = "table table-bordered">
                     <tr>
