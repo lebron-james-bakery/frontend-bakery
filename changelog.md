@@ -7,6 +7,10 @@ Team members:
 @gerardng
 
 ## [2.0.0] - 2016-12-11
+### Added 2016-12-11
+- Add, edit and delete functions for supplies and recipes @gerardng
+- Added reset buttons for funds and log transactions @gerardng
+
 ### Changed 2016-12-10
 - Receiving page forms properly adding up to inventory quantity @gerardng
 - Added prepare function to convert receiving inventory into on-hand quantity @gerardng

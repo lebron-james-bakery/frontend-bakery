@@ -96,7 +96,7 @@ class Sales extends Application
         $this->index();
     }
 
-    public function checkout($what) 
+    public function checkout()
     {
         $orders = new Orders($this->session->userdata('orders'));
         

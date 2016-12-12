@@ -100,4 +100,26 @@ class Welcome extends Application
         $this->render();
 	}
 
+    /*
+     *  Resets bakery funds
+     */
+	function resetFunds()
+    {
+        $this->load->helper('file');
+        if ( ! write_file('../data/money.txt', 500000))
+            $this->error_messages[] = 'Error writing to money.txt';
+        redirect('/');
+    }
+
+    /*
+     * Resets purchased inventory logs
+     */
+    function resetPurchases()
+    {
+        $this->load->helper('file');
+        if ( ! write_file('../data/buy-logs.txt', ' '. PHP_EOL . PHP_EOL))
+            $this->error_messages[] = 'Error writing to buy-logs.txt';
+        redirect('/');
+    }
+
 }

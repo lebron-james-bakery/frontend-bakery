@@ -68,7 +68,7 @@ class Orders extends CI_Model {
             $result .= '- ' . $value . ' ' . $recipes->name . PHP_EOL;
             $total += $value * $recipes->price;
         }
-        $result .= PHP_EOL . 'Total: cent' . number_format($total, 2) . PHP_EOL;
+        $result .= PHP_EOL . 'Total: ' . number_format($total, 2) . ' cents' . PHP_EOL;
         return $result;
     }
 

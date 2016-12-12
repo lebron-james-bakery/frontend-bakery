@@ -72,6 +72,32 @@ class Administrator extends Application
     }
 
     /**
+     * Add a supply
+     * When code is null, a new supply is being added
+     * @param $id Supply id to add
+     */
+    function newSupplies()
+    {
+
+        $this->data['action'] = (empty($key)) ? 'Adding' : 'Editing';
+        // build the form fields
+        // makeTextField (Label, database column name, record to insert)
+        // disabled field => makeLaBel (Label, database column name, record to insert)
+        $this->data['fid'] = makeTextField('Item Id', 'id', '');
+        $this->data['fname'] = makeTextField('Item Name', 'name', '');
+        $this->data['fonhand'] = makeTextField('On Hand amount, units (g)', 'qty_onhand', '');
+        $this->data['freceiving'] = makeTextField('Receiving amount, units (g)', 'qty_inventory', '');
+        $this->data['fprice'] = makeTextField('Price (cent), per unit', 'price', '');
+
+        // show the editing form
+        $this->data['pagebody'] = "administrator_supplies-add_view";
+        //this is called when submit button is click ,make submit button
+        $this->data['zsubmit'] = makeSubmitButton('Add', 'Submit changes');
+        $this->show_any_errors();
+        $this->render();
+    }
+
+    /**
      * Called when cancel button is click, cancel the transection on editing form
      */
     function cancel()
@@ -124,8 +150,38 @@ class Administrator extends Application
             $this->supplies->add($record);
         else
             $this->supplies->update($record);
+
+        // unset session variables
         $this->session->unset_userdata('key');
    		$this->session->unset_userdata('record');
+
+        // and redisplay the list
+        $this->index();
+    }
+
+    /**
+     * Called when add button is clicked, add contents as a new row to the database
+     */
+    function addSupplies()
+    {
+        // update our data transfer object
+        $incoming = $this->input->post();
+        var_dump($incoming);
+        // validate
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules($this->supplies->adminSupplyRules());
+        if ($this->form_validation->run() != TRUE)
+            $this->error_messages = $this->form_validation->error_array();
+
+        // add or not
+        if (! empty($this->error_messages)) {
+            $this->newSupplies();
+            return;
+        }
+
+        // add to our table, finally!
+        $this->supplies->add($incoming);
+
         // and redisplay the list
         $this->index();
     }
@@ -150,13 +206,8 @@ class Administrator extends Application
     /**
      * Deletes a row from the database
      */
-    function delete() {
-        $key = $this->session->userdata('key');
-        $record = $this->session->userdata('record');
-        // only delete if editing an existing record
-        if (! empty($record)) {
-            $this->supplies->delete($key);
-        }
+    function deleteSupply($id = null) {
+        $this->supplies->delete($id);
         $this->index();
     }
 }

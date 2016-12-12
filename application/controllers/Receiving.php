@@ -74,7 +74,7 @@ class Receiving extends Application
         $this->data['fname'] = makeLabel('Item Name', 'name', $record->name);
         $this->data['fonhand'] = makeLabel('On Hand amount, units (g)', 'qty_onhand', $record->qty_onhand);
         $this->data['freceiving'] = makeTextField('Amount to Order, units (g)', 'qty_inventory', $record->qty_inventory);
-        $this->data['fprice'] = makeTextField('Price (cent), per unit', 'price', $record->price);
+        $this->data['fprice'] = makeTextField('Price (cents), per unit', 'price', $record->price);
 
         // show the editing form
         $this->data['pagebody'] = "receiving-edit_view";
@@ -144,13 +144,17 @@ class Receiving extends Application
         }
 
         // log transactions
-        $string = "Ordered " . $orderedAmount . " grams of " . $record->name . " at " . $record->price . "$ per unit for a total of $" . ($record->price * $orderedAmount) . " - " . date(DATE_ATOM) . PHP_EOL;
+        $string = "Ordered " . $orderedAmount . " grams of " . $record->name . " at " . $record->price . " cents per unit for a total of " . ($record->price * $orderedAmount) . " cents - " . date(DATE_ATOM) . PHP_EOL;
         file_put_contents('../data/buy-logs.txt', $string.PHP_EOL , FILE_APPEND | LOCK_EX);
         $this->load->helper('file');
         $currentTotal = file_get_contents('../data/money.txt');
         $newRunningTotal =  $currentTotal - ($record->price * $orderedAmount);
         if ( ! write_file('../data/money.txt', $newRunningTotal))
             $this->error_messages[] = 'Error writing to money.txt';
+
+        //unset session variables
+        $this->session->unset_userdata('key');
+        $this->session->unset_userdata('record');
 
         // and redisplay the list
         $this->index();
