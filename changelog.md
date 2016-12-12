@@ -7,6 +7,8 @@ Team members:
 @gerardng
 
 ## [2.0.0] - 2016-12-11
+- Completed and released for assignment 2
+
 ### Added 2016-12-11
 - Add, edit and delete functions for supplies and recipes @gerardng
 - Added reset buttons for funds and log transactions @gerardng
