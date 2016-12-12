@@ -1,10 +1,20 @@
-<div class="row">
-    {items}
-    <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-        <a href="{href}"><img class="items img-rounded img-responsive" src="/pix/{pic}" title="{name}"/></a>
-        <h5 class="text-center">{name}</h5>
-    </div>
-    </div>
-    {/items}
+<div class="content">
+    <h2>{name}</h2>
+    <label class="ingredient">Quantity:&nbsp;</label>{qty}<span></span>
+    <table class="table ingredient">
+        <tr>
+            <th>Name</th>
+            <th>Quantity(g)</th>
+            <th>OnHand Quantity(g)</th>
+        </tr>
+        {ingredient}
+        <tr>
+            <td>{ing_name}</td>
+            <td>{ing_qty}</td>
+            <td>{ing_onhand}</td>
+        </tr>
+        {/ingredient}
+    </table>
+    <a class="btn btn-primary" role="button" href="/Production/cook/{id}">Cook One</a>
+    <a class="btn btn-default" role="button" href="/Production/cancel">Cancel</a>
 </div>

@@ -37,18 +37,20 @@ img.items{
 .textbox{
     width:20%;
     }
-.desc{
-    position:relative;
-    float:left;
-    width:60%;
-    padding: 20px 0 0 20px;
-    margin: 20px 0 0 20px;
-    border-style: dotted;
-    border-radius: 15px;
-    border-color: palevioletred;
-    background-color: white;
-    opacity: 0.9;
-}
+    
 .sales td {border: 0px ;}
+
+.scale-mini{
+    height: 80px;
+}
+
+.scale-detail{
+    position: relative;
+    width: 40%;
+}
+.ingredient{
+    position: relative;
+    margin: 20px 0;
+}
 
 
