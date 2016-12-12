@@ -166,7 +166,7 @@ class Administrator extends Application
     {
         // update our data transfer object
         $incoming = $this->input->post();
-        var_dump($incoming);
+        //var_dump($incoming);
         // validate
         $this->load->library('form_validation');
         $this->form_validation->set_rules($this->supplies->adminSupplyRules());
