@@ -2,7 +2,6 @@
 
 /**
  * Supplies model with CRUD functions to interact with a backend database through REST calls
- * @author Gerard
  */
 define('REST_SERVER', 'http://backend.local');      // the REST server host
 define('REST_PORT', $_SERVER['SERVER_PORT']);       // the port you are running the server on
@@ -90,6 +89,6 @@ class Supplies extends MY_Model {
     {
         $this->rest->initialize(array('server' => REST_SERVER));
         $this->rest->option(CURLOPT_PORT, REST_PORT);
-        $retrieved =  $this->rest->post('/maintenance/item/id/' . $record->id, json_encode($record));
+        return $this->rest->post('/maintenance/item/id/' . $record['id'], json_encode($record));
     }
 }

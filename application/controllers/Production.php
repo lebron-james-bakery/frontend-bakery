@@ -267,4 +267,13 @@ class Production extends Application
         $this->session->unset_userdata('$ingredient');
         $this->index();
     }
+
+    /**
+     * Deletes a row from the database
+     */
+    function delete($id = null) {
+        $this->recipe_supply->delete($id, null);
+        $this->recipes->delete($id);
+        redirect('/Administrator');
+    }
 }

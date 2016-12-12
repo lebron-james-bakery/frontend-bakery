@@ -53,7 +53,7 @@
                     {receipt}
                 </div>
                 <div class="row">
-                    <a class="btn btn-primary btn-default" role="button" href="/Sales/checkout">Checkout</a>
+                    <a class="btn btn-primary" role="button" href="/Sales/checkout">Checkout</a>
                     <a class="btn btn-default" role="button" href="/Sales/cancel">Cancel This Order</a>
                 </div>
             </div>       

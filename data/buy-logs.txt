@@ -1,10 +1,2 @@
-Ordered 90.00 quantities of Flour for 45.0 $ per unit - 2016-12-08T20:54:53-08:00
-
-Ordered 20.00 quantities of Flour for 9.0 $ per unit - 2016-12-09T20:07:43+01:00
-
-Ordered 20.00 quantities of Flour for 19.0 $ per unit - 2016-12-09T20:08:17+01:00
-
-Ordered 100.00 grams of Flour at 1.00$ per unit for a total of $100 - 2016-12-11T19:41:26+01:00
-
-Ordered 60000.00 grams of Flour2 at 0.58$ per unit for a total of $34800 - 2016-12-11T19:42:02+01:00
+ 
 

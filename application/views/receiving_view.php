@@ -19,8 +19,8 @@
                 <td>{qty_onhand}</td>
                 <td>{qty_inventory}</td>
                 <td>{price}</td>
-                <td><a class="btn btn-default" role="button" href="/Receiving/edit/{id}">Order</a>
-                    <a class="btn btn-default" role="button" href="/Receiving/prepare/{id}">Prepare</a></td>
+                <td><a class="btn btn-warning" role="button" href="/Receiving/edit/{id}">Order</a>
+                    <a class="btn btn-success" role="button" href="/Receiving/prepare/{id}">Prepare</a></td>
             </tr>
             {/items}
         </table>

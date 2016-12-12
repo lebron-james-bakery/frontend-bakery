@@ -20,9 +20,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="/Sales">
+                <a href="/Welcome/resetFunds">
                     <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
+                        <span class="pull-left">Reset Funds</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
@@ -89,9 +89,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="/Receiving">
+                <a href="/Welcome/resetPurchases">
                     <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
+                        <span class="pull-left">Reset Purchases</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
